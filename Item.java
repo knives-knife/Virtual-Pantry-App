@@ -15,11 +15,11 @@ public class Item {
         this.favorite = false;
     }
 
-    public LocalDateTime getexpDate() {
+    public LocalDate getexpDate() {
         return expDate;
     }
 
-    public void setexpDate(LocalDateTime expDate) {
+    public void setexpDate(LocalDate expDate) {
         this.expDate = expDate;
     }
 
