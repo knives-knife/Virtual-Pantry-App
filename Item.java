@@ -1,19 +1,25 @@
-
-
-
+import java.time.LocalDate;    
 
 public class Item {
 
     String name;
     int quantity;
-    String expDate;
+    LocalDate expDate;
     boolean favorite;
 
-    public String getexpDate() {
+    public Item() {
+
+        this.name = "initalfoodname";
+        this.quantity = 0;
+        this.expDate = 2021-03-13;
+        this.favorite = false;
+    }
+
+    public LocalDateTime getexpDate() {
         return expDate;
     }
 
-    public void setexpDate(String expDate) {
+    public void setexpDate(LocalDateTime expDate) {
         this.expDate = expDate;
     }
 
@@ -41,5 +47,4 @@ public class Item {
         this.name = name;
     }
 
-    
 }
