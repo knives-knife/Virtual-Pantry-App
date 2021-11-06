@@ -1,0 +1,26 @@
+Recipe1
+recipe desc - 1
+recipe desc - 2
+recipe desc - 3
+Carrots
+Grapes
+Pasta
+Potatoes
+*
+Recipe2
+recipe desc2 - 1
+recipe desc2 - 2
+recipe desc2 - 3
+Cereal
+Sugar
+Salt
+Rice
+*
+Recipe3
+recipe desc3 - 1
+recipe desc3 - 2
+recipe desc3 - 3
+Apples
+Oranges
+Bananas
+Milk
