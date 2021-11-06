@@ -1,13 +1,12 @@
-
 import java.util.Objects;
 
 //Recipe class, recipes have a name, description, and ingredients.
 public class Recipe {
     String name;
     String[] description;
-    String[] ingredients;       //will be Item[] once finished
+    Item[] ingredients;       //will be Item[] once finished
 
-    public Recipe(String n, String[] d, String[] i){
+    public Recipe(String n, String[] d, Item[] i){
         this.name = n;
         this.description = d;
         this.ingredients = i;
@@ -21,7 +20,7 @@ public class Recipe {
         return description;
     }
 
-    public String[] getIngredients(){
+    public Item[] getIngredients(){
         return ingredients;
     }
 
@@ -34,7 +33,7 @@ public class Recipe {
                 .append("\n");
         for (int y = 0; y < getIngredients().length; y++) {
             if (!Objects.equals(getIngredients()[y], null))
-                temp.append(getIngredients()[y]).append("\n");
+                temp.append(getIngredients()[y].getName()).append("\n");
         }
         return temp.toString();
     }

@@ -1,7 +1,7 @@
 ABCDEFGHI
-M 1
-M 2
-M 3
+Member1
+Member2
+Member3
 *
 JKLMNOPQR
 Member4
@@ -13,6 +13,3 @@ STUVWXYZA
 Member8
 Member9
 Member10
-Member11
-Member12
-Member13
