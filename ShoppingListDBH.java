@@ -1,11 +1,10 @@
-
 import java.io.File;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class ShoppingListDBH {
     String hhCode;
-    String[] shoppingList;
+    Item[] shoppingList;
     int slSize;
 
     public ShoppingListDBH(String x){
@@ -32,12 +31,12 @@ public class ShoppingListDBH {
             }
 
             in = new Scanner(hhSLF);
-            shoppingList = new String[100];       //maximum value hardcoded to 100
+            shoppingList = new Item[100];       //maximum value hardcoded to 100
 
             int index = 0;
             while(in.hasNextLine()){
                 String temp = in.nextLine();
-                shoppingList[index] = temp;
+                shoppingList[index] = new Item(temp);
                 index++;
                 slSize++;
             }
@@ -49,14 +48,14 @@ public class ShoppingListDBH {
     }
 
     public void printSL(){
-        for (String s : shoppingList) {
+        for (Item s : shoppingList) {
             if (s != null)
-                System.out.print(s + " ");
+                System.out.print(s.getName() + " ");
         }
         System.out.println();
     }
 
-    public void addToSL(String item){
+    public void addToSL(Item item){
         for(int x = 0; x < shoppingList.length; x++){
             if(shoppingList[x] == null){
                 shoppingList[x] = item;
@@ -69,7 +68,7 @@ public class ShoppingListDBH {
 
     public void deleteFromSL(String item){
         for(int x = 0; x < shoppingList.length; x++){
-            if(shoppingList[x] != null && shoppingList[x].equals(item)){
+            if(shoppingList[x] != null && shoppingList[x].getName().equals(item)){
                 shoppingList[x] = null;
                 slSize--;
                 break;
@@ -97,9 +96,9 @@ public class ShoppingListDBH {
             }
 
             PrintWriter out = new PrintWriter(hhFridgeF);
-            for (String s : shoppingList) {
+            for (Item s : shoppingList) {
                 if (s != null) {
-                    out.println(s);
+                    out.println(s.getName());
                 }
             }
             out.close();

@@ -5,7 +5,7 @@ import java.io.*;
 //handles the files of all household pantries and fridges. Includes get, add, delete, and update methods.
 public class DatabaseHandler {
     String hhCode;              //household code
-    String[]  pantry, fridge;   //array ingredients in the pantry and fridge of household
+    Item[]  pantry, fridge;   //array ingredients in the pantry and fridge of household
     int  pSize, fSize;          //size of pantry and fridge, max value is 100
 
     //takes in string for the account code to find the file to read write from, and gets everything from the database to arrays.
@@ -40,20 +40,20 @@ public class DatabaseHandler {
             inP = new Scanner(hhPantryF);
             inF = new Scanner(hhFridgeF);
 
-            pantry = new String[100];       //maximum value hardcoded to 100
-            fridge = new String[100];
+            pantry = new Item[100];       //maximum value hardcoded to 100
+            fridge = new Item[100];
 
             int index = 0;
             int index2 = 0;
             while(inP.hasNextLine()){
                 String temp = inP.nextLine();
-                pantry[index] = temp;
+                pantry[index] = new Item(temp);
                 index++;
                 pSize++;
             }
             while(inF.hasNextLine()){
                 String temp = inF.nextLine();
-                fridge[index2] = temp;
+                fridge[index2] = new Item(temp);
                 index2++;
                 fSize++;
             }
@@ -68,18 +68,18 @@ public class DatabaseHandler {
 
     //prints the pantry as "itemname" + " itemname2" ...etc
     public void printPantry(){
-        for (String s : pantry) {
+        for (Item s : pantry) {
             if (s != null)
-                System.out.print(s + " ");
+                System.out.print(s.getName() + " ");
         }
         System.out.println();
     }
 
     //prints the fridge as "itemname" + " itemname2" ...etc
     public void printFridge(){
-        for (String s : fridge) {
+        for (Item s : fridge) {
             if (s != null)
-                System.out.print(s + " ");
+                System.out.print(s.getName() + " ");
         }
         System.out.println();
     }
@@ -88,7 +88,7 @@ public class DatabaseHandler {
     public void addToPantry(String item) throws Exception {
         for(int x = 0; x < pantry.length; x++){
             if(pantry[x] == null){
-                pantry[x] = item;
+                pantry[x] = new Item(item);
                 pSize++;
                 break;
             }
@@ -100,7 +100,7 @@ public class DatabaseHandler {
     public void addToFridge(String item) throws Exception {
         for(int x = 0; x < fridge.length; x++){
             if(fridge[x] == null){
-                fridge[x] = item;
+                fridge[x] = new Item(item);
                 fSize++;
                 break;
             }
@@ -111,7 +111,7 @@ public class DatabaseHandler {
     //takes in item as parameter and deletes it from array, then updates the file
     public void deleteFromPantry(String item) throws Exception {
         for(int x = 0; x < pantry.length; x++){
-            if(pantry[x] != null && pantry[x].equals(item)){
+            if(pantry[x] != null && pantry[x].getName().equals(item)){
                 pantry[x] = null;
                 pSize--;
                 break;
@@ -123,7 +123,7 @@ public class DatabaseHandler {
     //takes in item as parameter and deletes it from array, then updates the file
     public void deleteFromFridge(String item) throws Exception {
         for(int x = 0; x < fridge.length; x++){
-            if(fridge[x] != null && fridge[x].equals(item)){
+            if(fridge[x] != null && fridge[x].getName().equals(item)){
                 fridge[x] = null;
                 fSize--;
                 break;
@@ -139,10 +139,10 @@ public class DatabaseHandler {
     public int getFridgeSize(){return fSize;}
 
     //returns pantry array
-    public String[] getPantry(){return pantry;}
+    public Item[] getPantry(){return pantry;}
 
     //returns fridge array
-    public String[] getFridge(){return fridge;}
+    public Item[] getFridge(){return fridge;}
 
     //updates the fridge file of the appropriate household, takes values in the array and stores them back into the file
     public void writeToFridge() throws Exception{
@@ -164,9 +164,9 @@ public class DatabaseHandler {
             }
 
             PrintWriter out = new PrintWriter(hhFridgeF);
-            for (String s : fridge) {
+            for (Item s : fridge) {
                 if (s != null) {
-                    out.println(s);
+                    out.println(s.getName());
                 }
             }
             out.close();
@@ -195,9 +195,9 @@ public class DatabaseHandler {
                     throw new Exception("Invalid String");
             }
             PrintWriter out = new PrintWriter(hhPantryF);
-            for (String s : pantry) {
+            for (Item s : pantry) {
                 if (s != null) {
-                    out.println(s);
+                    out.println(s.getName());
                 }
             }
             out.close();
