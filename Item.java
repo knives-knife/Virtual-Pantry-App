@@ -1,4 +1,4 @@
-import java.time.LocalDate;    
+import java.time.LocalDate;
 
 public class Item {
 
@@ -8,23 +8,32 @@ public class Item {
     boolean favorite;
 
     public Item() {
-
         this.name = "initalfoodname";
         this.quantity = 0;
-        this.expDate = 2021-03-13;
         this.favorite = false;
+    }
+
+    public Item(String s, int q, String d){
+        this.name = s;
+        this.quantity = q;
+
+        String[] chars = d.split("");
+        String temp = chars[0]+chars[1]+chars[2]+chars[3]+"-"+chars[4]+chars[5]+"-"+chars[6]+chars[7];
+        expDate = LocalDate.parse(temp);
+        favorite = false;
+    }
+
+    public Item(String s){
+        this.name = s;
+        this.quantity = 999;        //if the value is 999, it never runs out?
+        this.expDate = null;
     }
 
     public LocalDate getexpDate() {
         return expDate;
     }
 
-    public void setexpDate(String expDateString) {
-
-     expDateString ="2017-09-23";
-
-        LocalDate expDate = LocalDate.parse(expDateString);
-
+    public void setexpDate(LocalDate expDate) {
         this.expDate = expDate;
     }
 
