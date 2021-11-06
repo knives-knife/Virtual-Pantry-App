@@ -19,7 +19,12 @@ public class Item {
         return expDate;
     }
 
-    public void setexpDate(LocalDate expDate) {
+    public void setexpDate(String expDateString) {
+
+     expDateString ="2017-09-23";
+
+        LocalDate expDate = LocalDate.parse(expDateString);
+
         this.expDate = expDate;
     }
 
