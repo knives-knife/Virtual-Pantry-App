@@ -1,9 +1,7 @@
-
 import java.io.File;
+import java.io.PrintWriter;
 import java.util.Objects;
 import java.util.Scanner;
-
-
 
 //handles the files of all household pantries and fridges. Includes get, add, delete, and update methods.
 public class AccountDBH
@@ -44,35 +42,60 @@ public class AccountDBH
         }
     }
 
+    //returns a string of accounts... yea i need to name stuff better mb
     public String printAccounts(){
         StringBuilder temp = new StringBuilder();
-        for (Account acc : accounts) {
-            if (acc != null) {
-                temp.append(acc.getHouseholdCode()).append("\n");
-                for (int y = 0; y < acc.getMemList().length; y++) {
-                    if (!Objects.equals(acc.getMemList()[y], null))
-                        temp.append("\t\t").append(acc.getMemList()[y].getDisplayName()).append("\n");
+        for (Account recipe : accounts) {
+            if (recipe != null) {
+                temp.append(recipe.getHouseholdCode()).append("\n");
+                for (int y = 0; y < recipe.getMemList().length; y++) {
+                    if (!Objects.equals(recipe.getMemList()[y], null))
+                        temp.append("\t\t").append(recipe.getMemList()[y].getDisplayName()).append("\n");
                 }
             }
         }
         return temp.toString();
     }
-    
-    boolean isValidAccount(String hhc)
-    {
-        for (Account acc : accounts)
-            if (acc != null)
-                if (acc.getHouseholdCode().equals(hhc))
-                    return true;
-        return false;
+
+    public void addMember(Member[] m){
+
     }
-    
-    Account getAccount(String hhc)
-    {
-        for (Account acc : accounts)
-            if (acc != null)
-                if (acc.getHouseholdCode().equals(hhc))
-                    return acc;
-        return null;
+
+    public void deleteMember(String a, String name){
+        for (Account account : accounts) {
+            if (account != null && account.getHouseholdCode().equals(a)) {
+                for (int y = 0; y < account.getMemList().length; y++) {
+                    if (account.getMemList()[y] != null && account.getMemList()[y].getDisplayName().equals(name)) {
+                        account.getMemList()[y] = null;
+                    }
+                }
+            }
+        }
+        updateAccountFile();
     }
+
+    public void updateAccountFile(){
+        try {
+            File hhFridgeF = new File("accounts.txt");
+            PrintWriter out = new PrintWriter(hhFridgeF);
+            String asterisk = "";
+            for (Account s : accounts) {
+                if (s != null) {
+                    out.print(asterisk);
+                    asterisk = "*\n";
+                    out.println(s.getHouseholdCode());
+                    for(int x = 0; x < s.getMemList().length; x++){
+                        if(s.getMemList()[x] != null){
+                            out.println(s.getMemList()[x].getDisplayName());
+                        }
+                    }
+                }
+            }
+            out.close();
+
+        }catch (Exception e){
+            System.out.println("Exception: " + e.getMessage());
+        }
+    }
+
 }
