@@ -85,10 +85,10 @@ public class DatabaseHandler {
     }
 
     //takes in an item as parameter and adds it to the array, then calls the write method to update pantry
-    public void addToPantry(String item) throws Exception {
+    public void addToPantry(Item item) throws Exception {
         for(int x = 0; x < pantry.length; x++){
             if(pantry[x] == null){
-                pantry[x] = new Item(item);
+                pantry[x] = item;
                 pSize++;
                 break;
             }
@@ -97,10 +97,10 @@ public class DatabaseHandler {
     }
 
     //takes in an item as parameter and adds it to the array, then calls the write method to update fridge
-    public void addToFridge(String item) throws Exception {
+    public void addToFridge(Item item) throws Exception {
         for(int x = 0; x < fridge.length; x++){
             if(fridge[x] == null){
-                fridge[x] = new Item(item);
+                fridge[x] = item;
                 fSize++;
                 break;
             }

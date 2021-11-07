@@ -287,12 +287,12 @@ public class AddItemGUI extends javax.swing.JFrame
 
     private void itemNameFieldActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_itemNameFieldActionPerformed
     {//GEN-HEADEREND:event_itemNameFieldActionPerformed
-        // TODO add your handling code here:
+        //intentionally left blank
     }//GEN-LAST:event_itemNameFieldActionPerformed
 
     private void itemExpFieldActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_itemExpFieldActionPerformed
     {//GEN-HEADEREND:event_itemExpFieldActionPerformed
-        // TODO add your handling code here:
+        //intentionally left blank
     }//GEN-LAST:event_itemExpFieldActionPerformed
 
     //switch to FridgeGUI when the fridge button is clicked
@@ -379,7 +379,7 @@ public class AddItemGUI extends javax.swing.JFrame
             errorLabel.setText("Invalid Item Quantity");
             errorLabel.setVisible(true);
         }
-        //check if itemExp is empty or it is not exactly lenght 8
+        //check if itemExp is empty or it is not exactly length 8
         else if (itemExp.equals("") || itemExp.length() == 8)
         {
             errorLabel.setText("Invalid Item Expiration Date");
@@ -389,32 +389,35 @@ public class AddItemGUI extends javax.swing.JFrame
         {
             try
             {
+                //TODO fix item quantity Parser
                 //try to parse the itemQuantity into integer
                 //if cannot, catch exception
-                int itemQ = java.lang.Integer.parseInt(itemQuantity);
+                int itemQ = (int) java.lang.Integer.parseInt(itemQuantity);
                 
                 //if the location is pantry, 
                 //add the item to the account's pantry
                 if (pantryRadioButton.isSelected())
                 {
-//                    //TODO dbh.addToPantry(new Item(itemName.toLowerCase(), 
-//                            itemQ, itemExp));
+                    dbh.addToPantry(new Item(itemName.toLowerCase(), 
+                           itemQ, itemExp));
                 }
                 
                 //if the location is fridge, 
                 //add the item to the account's fridge
                 else if (fridgeRadioButton.isSelected())
                 {
-//                    //TODO dbh.addToFridge(new Item(itemName.toLowerCase(), 
-//                            itemQ, itemExp));
+                   dbh.addToFridge(new Item(itemName.toLowerCase(), 
+                           itemQ, itemExp));
                 }
                 
                 //if the location is shopping list, 
                 //add the item to the account's shopping list
                 else if (shoppingListRadioButton.isSelected())
                 {
-//                    //TODO dbh.addToShoppingList(new Item(itemName.toLowerCase(), 
-//                            itemQ, itemExp));
+                    ShoppingListDBH sldbh = new ShoppingListDBH(
+                        account.getHouseholdCode());
+                   sldbh.addToSL(new Item(itemName.toLowerCase(), 
+                           itemQ, itemExp));
                 }
                 
                 //otherwise, no location was selected

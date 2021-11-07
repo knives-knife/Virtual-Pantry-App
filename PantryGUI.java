@@ -241,7 +241,7 @@ public class PantryGUI extends javax.swing.JFrame
 
     private void itemJListMouseWheelMoved(java.awt.event.MouseWheelEvent evt)//GEN-FIRST:event_itemJListMouseWheelMoved
     {//GEN-HEADEREND:event_itemJListMouseWheelMoved
-        // TODO add your handling code here:
+        //intentionally left blank
     }//GEN-LAST:event_itemJListMouseWheelMoved
 
     //switch to FridgeGUI when the fridge button is clicked
@@ -295,7 +295,7 @@ public class PantryGUI extends javax.swing.JFrame
     //remove the selected item from the pantry of the account
     private void removeItemButtonActionPerformed(java.awt.event.ActionEvent evt)
     {
-
+        //TODO update itemJList after removal
         //get the name of the item to be removed
         String itemToRemoveName = itemJList.getSelectedValue();
         //if no item was selected, tell user
@@ -344,32 +344,31 @@ public class PantryGUI extends javax.swing.JFrame
 
     private void populateItemModel()
     {
-        //TODO uncomment
-//        DatabaseHandler dbh = null;
-//        //try to make the DatabasHandler
-//        try
-//        {
-//            dbh = new DatabaseHandler(account.getHouseholdCode());
-//        }
-//        //catch error
-//        //return user to LogInGUI
-//        catch (Exception ex)
-//        {
-//            this.dispose();
-//            LogInGUI logIn = new LogInGUI(account, member);
-//            logIn.setVisible(true);
-//            return;
-//        }
-//
-//        //get pantry from DatabasHandler
-//        Item[] pantry = dbh.getFridge();
-//        //add non-null items' names to the GUI list
-//        for (Item i : pantry)
-//        {
-//            if (i != null)
-//            {
-//                this.itemModel.addElement(i.getName());
-//            }
-//        }
+       DatabaseHandler dbh = null;
+       //try to make the DatabasHandler
+       try
+       {
+           dbh = new DatabaseHandler(account.getHouseholdCode());
+       }
+       //catch error
+       //return user to LogInGUI
+       catch (Exception ex)
+       {
+           this.dispose();
+           LogInGUI logIn = new LogInGUI(account, member);
+           logIn.setVisible(true);
+           return;
+       }
+
+       //get pantry from DatabasHandler
+       Item[] pantry = dbh.getPantry();
+       //add non-null items' names to the GUI list
+       for (Item i : pantry)
+       {
+           if (i != null)
+           {
+               this.itemModel.addElement(i.getName());
+           }
+       }
     }
 }

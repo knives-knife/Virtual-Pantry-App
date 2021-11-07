@@ -29,11 +29,11 @@ public class Item {
         this.expDate = null;
     }
 
-    public LocalDate getexpDate() {
+    public LocalDate getExpDate() {
         return expDate;
     }
 
-    public void setexpDate(LocalDate expDate) {
+    public void setExpDate(LocalDate expDate) {
         this.expDate = expDate;
     }
 

@@ -22,7 +22,6 @@ public class ViewRecipeGUI extends javax.swing.JFrame
     public ViewRecipeGUI(Account acc, Member mem, Recipe rec)
     {
         initComponents();
-        addToSLButton.setEnabled(false);
         errorLabel.setVisible(false);
         account = acc;
         member = mem;
@@ -259,7 +258,42 @@ public class ViewRecipeGUI extends javax.swing.JFrame
     //adds the selected item to the accounts shopping list
     private void addToSLButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_addToSLButtonActionPerformed
     {//GEN-HEADEREND:event_addToSLButtonActionPerformed
-        //TODO need ShoppingListGUI
+        String itemToAddName = ingredientsJList.getSelectedValue();
+        if (itemToAddName == null)
+        {
+            errorLabel.setText("There is no item selected");
+            errorLabel.setVisible(true);
+        }
+        //there is an item that was selected
+        else
+        {
+            ShoppingListDBH sldbh;
+            //try to create DatabaseHandler
+            try
+            {
+                sldbh = new ShoppingListDBH(account.getHouseholdCode());
+                
+                Item[] ingredients = recipe.getIngredients();
+                for (Item i : ingredients)
+                {
+                    if (i != null && i.getName().equals(itemToAddName))
+                    {
+                        sldbh.addToSL(i);
+                        break;
+                    }
+                }
+                errorLabel.setText("The item was successfully added to your"
+                        + "shopping cart");
+                errorLabel.setVisible(true);
+            }
+            //catch error making the DatabaseHandler
+            //tell user item was not removed
+            catch (Exception ex)
+            {
+                errorLabel.setText("There was a problem with removing your item");
+                errorLabel.setVisible(true);
+            }
+        }
     }//GEN-LAST:event_addToSLButtonActionPerformed
 
     //this has no function, but needs to be here for the JList to function properly
@@ -330,25 +364,16 @@ public class ViewRecipeGUI extends javax.swing.JFrame
 
     private void populateItemModel()
     {
-        //TODO uncomment
-//        //get ingredients from recipe
-//        Item[] ingredients = recipe.getIngredients();
-//        //add non-null items' names to the GUI list
-//        for (Item i : ingredients)
-//        {
-//            if (i != null)
-//            {
-//                this.itemModel.addElement(i.getName());
-//            }
-//        }
-        String[] ingredients = recipe.getIngredients();
-        for (String s : ingredients)
-        {
-            if (s != null)
-            {
-                this.itemModel.addElement(s);
-            }
-        }
+       //get ingredients from recipe
+       Item[] ingredients = recipe.getIngredients();
+       //add non-null items' names to the GUI list
+       for (Item i : ingredients)
+       {
+           if (i != null)
+           {
+               this.itemModel.addElement(i.getName());
+           }
+       }
     }
 
     private void setDescLabels()

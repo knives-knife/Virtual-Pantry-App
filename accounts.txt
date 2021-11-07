@@ -1,5 +1,5 @@
 ABCDEFGHI
-Member1
+M 1
 Member2
 Member3
 *

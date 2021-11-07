@@ -158,7 +158,7 @@ public class LogInGUI extends javax.swing.JFrame {
 
     private void displayNameFieldActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_displayNameFieldActionPerformed
     {//GEN-HEADEREND:event_displayNameFieldActionPerformed
-        // TODO add your handling code here:
+        //intentionally left blank
     }//GEN-LAST:event_displayNameFieldActionPerformed
 
 

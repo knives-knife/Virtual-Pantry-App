@@ -47,7 +47,7 @@ public class DashboardGUI extends javax.swing.JFrame
 
         //get the pantry items and fridge items of the account
         //show the next expiration date
-        //TODO setNextExp(dbh.getPantry(), dbh.getFridge());
+        setNextExp(dbh.getPantry(), dbh.getFridge());
 
         //get the availabe recipes from the RecipesDBHandler
         //set the recipes buttons text with the name of the first three recipes
@@ -134,47 +134,78 @@ public class DashboardGUI extends javax.swing.JFrame
         }
     }
     
-//    void setNextExp(Item[] pantry, Item[] fridge)
-//    {
-//        
-//        // find next expiration date for pantry and 
-//        // fridge separately and store the indices
-//        int pExpDateIndex = 0;
-//        int fExpDateIndex = 0;
-//        for (int i = 0; i < pantry.length; i++)
-//        {
-//            if (pantry[i].getExpDate().isBefore(pantry[pExpDateIndex].getExpDate()))
-//            {
-//                pExpDateIndex = i;
-//            }
-//        }
-//        for (int i = 0; i < fridge.length; i++)
-//        {
-//            if (fridge[i].getExpDate().isBefore(fridge[fExpDateIndex].getExpDate()))
-//            {
-//                fExpDateIndex = i;
-//            }
-//        }
-//
-//        // create a format for the date
-//        DateTimeFormatter format1 = DateTimeFormatter.ofPattern("yyyy-MM-dd", Locale.ENGLISH);
-//
-//        //if the pantry item expires before the fridge item, 
-//        //display the pantry item
-//        if (pantry[pExpDateIndex].getExpDate().isBefore(fridge[fExpDateIndex].getExpDate()))
-//        {
-//            expDateLabel.setText(format1.format((TemporalAccessor) pantry[pExpDateIndex].getExpDate()));
-//            expItemLabel.setText(pantry[pExpDateIndex].getItemName());
-//        }
-//
-//        //otherwise the fridge item expires before the pantry item, 
-//        //so display the fridge item
-//        else
-//        {
-//            expDateLabel.setText(format1.format((TemporalAccessor) fridge[fExpDateIndex].getExpDate()));
-//             expItemLabel.setText(fridge[fExpDateIndex].getItemName());
-//         }
-//    }
+   void setNextExp(Item[] pantry, Item[] fridge)
+   {
+       
+       // find next expiration date for pantry and 
+       // fridge separately and store the indices
+       int pExpDateIndex = 0;
+       int fExpDateIndex = 0;
+       for (int i = 0; i < pantry.length; i++)
+       {
+           if (pantry[i] != null && pantry[i].getExpDate() != null)
+           {
+                if (pantry[i].getExpDate().isBefore(pantry[pExpDateIndex].getExpDate()))
+                {
+                    pExpDateIndex = i;
+                }
+            }
+       }
+       for (int i = 0; i < fridge.length; i++)
+       {
+            if (fridge[i] != null && fridge[i].getExpDate() != null)
+            {
+                if (fridge[i].getExpDate().isBefore(fridge[fExpDateIndex].getExpDate()))
+                {
+                    fExpDateIndex = i;
+                }
+            }   
+       }
+
+       // create a format for the date
+       DateTimeFormatter format1 = DateTimeFormatter.ofPattern("yyyy-MM-dd", Locale.ENGLISH);
+
+       if (pantry[pExpDateIndex].getExpDate() == null && 
+            fridge[fExpDateIndex].getExpDate() == null)
+        {
+            expDateLabel.setText("None");
+            expItemLabel.setText("None");
+        }
+        else
+        {
+            //pantry item has exp date and fridge does not
+            if (pantry[pExpDateIndex].getExpDate() != null && fridge[fExpDateIndex].getExpDate() == null) 
+            {
+                expDateLabel.setText(format1.format((TemporalAccessor) pantry[pExpDateIndex].getExpDate()));
+                expItemLabel.setText(pantry[pExpDateIndex].getName());
+            } 
+            //fridge item has exp date and pantry does not
+            else if (pantry[pExpDateIndex].getExpDate() == null && fridge[fExpDateIndex].getExpDate() != null) 
+            {
+                expDateLabel.setText(format1.format((TemporalAccessor) fridge[fExpDateIndex].getExpDate()));
+                expItemLabel.setText(fridge[fExpDateIndex].getName());
+            }
+            //both have exp dates
+            else 
+            {
+                // if the pantry item expires before the fridge item,
+                // display the pantry item
+                if (pantry[pExpDateIndex].getExpDate().isBefore(fridge[fExpDateIndex].getExpDate())) 
+                {
+                    expDateLabel.setText(format1.format((TemporalAccessor) pantry[pExpDateIndex].getExpDate()));
+                    expItemLabel.setText(pantry[pExpDateIndex].getName());
+                }
+
+                // otherwise the fridge item expires before the pantry item,
+                // so display the fridge item
+                else 
+                {
+                    expDateLabel.setText(format1.format((TemporalAccessor) fridge[fExpDateIndex].getExpDate()));
+                    expItemLabel.setText(fridge[fExpDateIndex].getName());
+                }
+            }
+        }
+   }
 
     /**
      * This method is called from within the constructor to initialize the form.

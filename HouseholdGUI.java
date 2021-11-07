@@ -241,7 +241,7 @@ public class HouseholdGUI extends javax.swing.JFrame
 
     private void memberJListMouseWheelMoved(java.awt.event.MouseWheelEvent evt)//GEN-FIRST:event_memberJListMouseWheelMoved
     {//GEN-HEADEREND:event_memberJListMouseWheelMoved
-        // TODO add your handling code here:
+        //intentionally left blank
     }//GEN-LAST:event_memberJListMouseWheelMoved
 
     //switch to FridgeGUI when the fridge button is clicked
@@ -304,52 +304,52 @@ public class HouseholdGUI extends javax.swing.JFrame
         }
     }
 
-    //remove the selected item from the pantry of the account
+    //remove the selected member from the member list of the account
     private void removeMemberButtonActionPerformed(java.awt.event.ActionEvent evt)
     {
-        //TODO make remove member methods in Account and AccountDBH then uncomment
-//        //get the name of the member to be removed
-//        String memberToRemoveDN = itemJList.getSelectedValue();
-//        //if no member was selected, tell user
-//        if (memberToRemoveDN == null)
-//        {
-//            errorLabel.setText("There is no member selected");
-//            errorLabel.setVisible(true);
-//        }
-//        //there is a member that was selected
-//        else
-//        {
-//            //check if member trying to delete another member is HoH
-//            if (member.isHoH())
-//            {
-//                AccountDBH adbh;
-//                //try to create AccountDBH
-//                try
-//                {
-//                    adbh = new AccountDBH(account.getHouseholdCode());
-//                    //remove the member from the account database
-//                    adbh.removeMember(account.getHouseholdCode(), 
-//                            memberToRemoveDN);
-//                    //remove the member from the member list in the account
-//                    account.removeMember(memberToRemoveDN);
-//                }
-//                //catch error making the AccountDBH
-//                //tell user member was not removed
-//                catch (Exception ex)
-//                {
-//                    errorLabel.setText("There was a problem with removing your item");
-//                    errorLabel.setVisible(true);
-//                }
-//            }
-//            //member is not HoH
-//            else
-//            {
-//                errorLabel.setText("You cannot remove members\n"
-//                        + "Contact you Head of Household to remove a member");
-//                errorLabel.setVisible(true);
-//
-//            }
-//        }
+        //TODO update memberJList after removal
+       //get the name of the member to be removed
+       String memberToRemoveDN = memberJList.getSelectedValue();
+       //if no member was selected, tell user
+       if (memberToRemoveDN == null)
+       {
+           errorLabel.setText("There is no member selected");
+           errorLabel.setVisible(true);
+       }
+       //there is a member that was selected
+       else
+       {
+           //check if member trying to delete another member is HoH
+           if (member.isHoH())
+           {
+               AccountDBH adbh;
+               //try to create AccountDBH
+               try
+               {
+                   adbh = new AccountDBH();
+                   //remove the member from the account database
+                   adbh.removeMember(account.getHouseholdCode(), 
+                           memberToRemoveDN);
+                   //remove the member from the member list in the account
+                   account.removeMember(memberToRemoveDN);
+               }
+               //catch error making the AccountDBH
+               //tell user member was not removed
+               catch (Exception ex)
+               {
+                   errorLabel.setText("There was a problem with" 
+                            + "removing the member");
+                   errorLabel.setVisible(true);
+               }
+           }
+           //member is not HoH
+           else
+           {
+               errorLabel.setText("You cannot remove members");
+               errorLabel.setVisible(true);
+
+           }
+       }
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

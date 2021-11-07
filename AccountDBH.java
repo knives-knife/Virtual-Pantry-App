@@ -61,7 +61,7 @@ public class AccountDBH
 
     }
 
-    public void deleteMember(String a, String name){
+    public void removeMember(String a, String name){
         for (Account account : accounts) {
             if (account != null && account.getHouseholdCode().equals(a)) {
                 for (int y = 0; y < account.getMemList().length; y++) {
@@ -96,6 +96,24 @@ public class AccountDBH
         }catch (Exception e){
             System.out.println("Exception: " + e.getMessage());
         }
+    }
+
+    boolean isValidAccount(String hhc)
+    {
+        for (Account acc : accounts)
+            if (acc != null)
+                if (acc.getHouseholdCode().equals(hhc))
+                    return true;
+        return false;
+    }
+    
+    Account getAccount(String hhc)
+    {
+        for (Account acc : accounts)
+            if (acc != null)
+                if (acc.getHouseholdCode().equals(hhc))
+                    return acc;
+        return null;
     }
 
 }

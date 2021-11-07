@@ -225,7 +225,7 @@ public class RecipesGUI extends javax.swing.JFrame
 
     private void recipeJListMouseWheelMoved(java.awt.event.MouseWheelEvent evt)//GEN-FIRST:event_recipeJListMouseWheelMoved
     {//GEN-HEADEREND:event_recipeJListMouseWheelMoved
-        // TODO add your handling code here:
+        //intentionally left blank
     }//GEN-LAST:event_recipeJListMouseWheelMoved
 
     //switch to FridgeGUI when the fridge button is clicked
@@ -310,7 +310,6 @@ public class RecipesGUI extends javax.swing.JFrame
     //fill the list with available recipes
     private void populateItemModel()
     {
-        //TODO uncomment
         DatabaseHandler dbh = null;
         RecipeDBH rdbh = null;
         //try to make the RecipeDBH

@@ -1,15 +1,19 @@
-import java.util.ArrayList;
+
 import java.util.Random;
 
 /**
  *
  * @author joahp
  */
-class Account {
+class Account
+{
+
     private String householdCode;
     private Member[] memberList;
 
-    public Account(String h, Member[] m) {
+    //Account constructor that takes h as the household code and a Member array m
+    public Account(String h, Member[] m)
+    {
         householdCode = h;
         memberList = m;
     }
@@ -31,7 +35,17 @@ class Account {
 
     boolean hasMember(String disName)
     {
-        return true;
+        for (Member mem : memberList)
+        {
+            if (mem != null)
+            {
+                if (mem.getDisplayName().equals(disName))
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     Member[] getMemList()
@@ -40,12 +54,34 @@ class Account {
     }
 
     Member getMember(String dn)
-    {
-        return new Member();
+    {for (Member mem : memberList)
+        {
+            if (mem != null)
+            {
+                if (mem.getDisplayName().equals(dn))
+                {
+                    return mem;
+                }
+            }
+        }
+        return null;
     }
 
     String getHouseholdCode()
     {
         return this.householdCode;
+    }
+
+    void removeMember(String dn)
+    {
+        for (int i=0; i<this.memberList.length;i++)
+        {
+            if (this.memberList[i] != null && 
+                this.memberList[i].getDisplayName().equals(dn));
+            {
+                this.memberList[i] = null;
+                break;
+            }
+        }
     }
 }

@@ -1,3 +1,6 @@
+//THIS CLASS IS NOT USED IN CODE
+//IT IS THE SAME AS RecipeDBH.java
+
 import java.io.File;
 import java.util.*;
 

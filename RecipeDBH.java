@@ -23,9 +23,9 @@ public class RecipeDBH {
                 String desc3 = in.nextLine();
                 String temp = in.nextLine();
                 int index2 = 0;
-                String[] recipeIngredients = new String[100];
+                Item[] recipeIngredients = new Item[100];
                 while(in.hasNextLine() && !temp.equals("*")){
-                    recipeIngredients[index2] = temp;
+                    recipeIngredients[index2] = new Item(temp);
                     temp = in.nextLine();
                     index2++;
                 }
@@ -78,18 +78,18 @@ public class RecipeDBH {
     }
 
     //returns a Recipe[] of every recipe you can make given the items in pantry and fridge. it has 100 elements, so check for null
-    public Recipe[] getRecipes(String[] pantry, String[] fridge){
+    public Recipe[] getRecipes(Item[] pantry, Item[] fridge){
         Recipe[] availableRecipes = new Recipe[100];
         String[] ingredients = new String[200];
         //two for loops to store both
         for(int x = 0; x < pantry.length; x++){
             if(pantry[x] != null){
-                ingredients[x] = pantry[x];
+                ingredients[x] = pantry[x].getName();
             }
         }
         for(int x = 0; x < fridge.length; x++){
             if(fridge[x] != null){
-                ingredients[100+x] = fridge[x];
+                ingredients[100+x] = fridge[x].getName();
             }
         }
 
@@ -100,8 +100,11 @@ public class RecipeDBH {
                 //for loop to check each ingredient
                 for(int y = 0; y < recipes[x].getIngredients().length; y++){
                     List<String> ingList = new ArrayList<>(Arrays.asList(ingredients));
-                    canMake = ingList.contains(recipes[x].getIngredients()[y]);
-                    if(!canMake) break;
+                    if (recipes[x].getIngredients()[y] != null)
+                    {
+                        canMake = ingList.contains(recipes[x].getIngredients()[y].getName());
+                        if(!canMake) break;
+                    }
                 }
                 //went through whole ingredient list with no missing
                 if(canMake){
