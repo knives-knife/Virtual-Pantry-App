@@ -1,3 +1,11 @@
+/*
+    Recipe Class
+    Defines the Recipe class which contains a name for the recipe, the description of the recipe, and a list of ingredients for the recipe
+    User does not access this class, used for backend purposes
+    Constructor (which is mostly called in the RecipeDBH) takes the the name, array of description, and array of ingredients and stores them
+    Has getter methods
+    overwrites toString which prints the recipe as a string
+*/
 import java.util.Objects;
 
 //Recipe class, recipes have a name, description, and ingredients.
