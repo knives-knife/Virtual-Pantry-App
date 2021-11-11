@@ -1,3 +1,17 @@
+/*
+Item
+    The Item Class is a structure to hold and get information about an Item. 
+    Instances of the Item Class are used in the pantry, fridge, shopping list,
+        and recipes. 
+    An instance of the Item class has a name - the name of the item - a quantity - 
+        how much of the item (could be null) - an expiration date - initially 
+        given as a string and parsed into a LocalDate type - and if that item is
+        a favorite - a boolean that is true for favorite and false otherwise. 
+    Methods - 
+        All methods are getters or setters for the describes attributes. 
+*/
+
+
 import java.time.LocalDate;
 
 public class Item {
