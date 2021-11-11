@@ -1,4 +1,18 @@
-
+/*
+ViewRecipeGUI
+    The ViewRecipeGUI has a bottom banner that allows the user to navigate to other pages.
+        The Fridge button navigates the user to the FridgeGUI
+        The Pantry button navigates the user to the PantryGUI
+        The Dashboard button navigates the user to the DashboardGUI
+        The Recipes button navigates the user to the RecipesGUI
+        The Household button navigates the user to the HouseholdGUI
+    The ViewRecipeGUI will display the recipes's name at the top of the screen
+    The ViewRecipeGUI will display the description under the description label
+    The ViewRecipeGUI will display a list of ingredients under the ingredients label
+    When the add item to shopping list button is clicked, if an item is selected in the 
+        list, the selected item is added to the Account's shopping list
+        **Note: not implemented yet 
+*/
 /**
  *
  * @author joahp

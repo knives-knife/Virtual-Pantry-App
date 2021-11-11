@@ -1,13 +1,19 @@
-
+/*
+LogInGUI
+    The LogInGUI allows a user to log in to the app using a display name and a household code field.
+    When the user clicks the log in button, if the household code provided is a valid household 
+        code and there is a member in the member listof the Account with the household code that 
+        matches the display name provided, the user successfully logged in and is sent to the 
+        Dashboard GUI
+    When the user clicks the sign up button, the user will be navigated to the SignUpGUI
+        **Note: not implemented yet
+*/
 /**
  *
  * @author joahp
  */
-public class LogInGUI extends javax.swing.JFrame {
-
-    /**
-     * Creates new form LogInGUI
-     */
+public class LogInGUI extends javax.swing.JFrame 
+{   
     public LogInGUI() {
         initComponents();
         errorLabel.setVisible(false);

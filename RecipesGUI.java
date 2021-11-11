@@ -1,4 +1,15 @@
-
+/*
+RecipesGUI
+    The RecipesGUI has a bottom banner that allows the user to navigate to other pages.
+        The Fridge button navigates the user to the FridgeGUI
+        The Pantry button navigates the user to the PantryGUI
+        The Dashboard button navigates the user to the DashboardGUI
+        The Recipes button is disabled since the user is already in the RecipesGUI
+        The Household button navigates the user to the HouseholdGUI
+    The RecipesGUI shows the user the recipes that can be made from the Account's
+        pantry and fridge 
+    When the view recipe button is clicked, the user will be navigated to the ViewRecipeGUI
+*/
 /**
  *
  * @author joahp

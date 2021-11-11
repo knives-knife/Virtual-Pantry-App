@@ -1,14 +1,21 @@
-
+/*
+ViewMemberGUI
+    The ViewMemberGUI has a bottom banner that allows the user to navigate to other pages.
+        The Fridge button navigates the user to the FridgeGUI
+        The Pantry button navigates the user to the PantryGUI
+        The Dashboard button navigates the user to the DashboardGUI
+        The Recipes button navigates the user to the RecipesGUI
+        The Household button navigates the user to the HouseholdGUI
+    The ViewMemberGUI will display the member's display name at the top of the screen
+    The ViewMemberGUI will display the member's household code under the household code label
+    The ViewMemberGUI will display if the member is the head of household or not
+*/
 /**
  *
  * @author joahp
  */
 public class ViewMemberGUI extends javax.swing.JFrame
 {
-
-    /**
-     * Creates new form DashboardGUI
-     */
     private Account account;
     private Member member;
     private Member viewMember;

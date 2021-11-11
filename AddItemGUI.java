@@ -1,3 +1,16 @@
+/*
+AddItemGUI
+    The AddItemGUi provides a GUI to add an item to an accounts pantry, fridge, or shopping list.
+    Input: String itemName
+        String itemQuantity
+        String expirationDate
+        One location selected:
+            Pantry
+            Fridge
+            Shopping List
+    Output: none
+    Expected Result: The accounts pantry, fridge, or shopping list has a new Item with the specified input
+*/
 
 /**
  *
@@ -5,10 +18,6 @@
  */
 public class AddItemGUI extends javax.swing.JFrame
 {
-
-    /**
-     * Creates new form DashboardGUI
-     */
     private Account account;
     private Member member;
 

@@ -1,14 +1,24 @@
-
+/*
+PantryGUI
+    The GUI has a bottom banner that allows the user to navigate to other pages.
+        The Fridge button navigates the user to the FridgeGUI
+        The Pantry button is disabled since the user is already in the PantryGUI
+        The Dashboard button navigates the user the the DashboardGUI
+        The Recipes button navigates the user to the RecipesGUI
+        The Household button navigates the user to the HouseholdGUI
+    The PantryGUI shows the user the items in the Account's pantry
+    When the add item button is clicked, the user will be navigated to the AddItemGUI
+    When the remove item button is clicked, if an item is selected in the list, the
+        selected item is removed from the Account's pantry
+        **Note: currently does not refresh list in the GUI, but does successfully
+            remove from pantry
+*/
 /**
  *
  * @author joahp
  */
 public class PantryGUI extends javax.swing.JFrame
 {
-
-    /**
-     * Creates new form DashboardGUI
-     */
     private Account account;
     private Member member;
     private javax.swing.DefaultListModel<String> itemModel;

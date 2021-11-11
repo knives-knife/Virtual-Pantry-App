@@ -1,4 +1,16 @@
-
+/*Account Class
+  The Account class provides a structure to reference a specific household. 
+  Each Account instance has a household code and a member list. 
+  To create an Account instance, a household code and a member list are required. 
+  Functions:
+    hasMember : returns true or false if there is a member with the display name in the member list
+        input : String displayName
+        output: true or false
+    removeMember: removes the member with the displayName dn from the member list if there is a
+                  member with a displayName dn in the member list
+        input   : String dn
+        output  : none
+*/
 import java.util.Random;
 
 /**
