@@ -1,3 +1,15 @@
+/*
+    RecipeDBH class
+    Handles the database files which contains the recipes, their description, and the ingredients.
+    Reads froma a file from recipes.txt, which will not be accessed or changed through out the program
+    Stores content of file as Recipe objects, and stores them into the array
+    Methods:
+        printRecipes: returns the recipes array as a string
+        printRecipes: overloaded method, if given with input of Recipe[], returns the recipe array of the parameter as a string
+        getRecipes: takes a pantry and fridge array as parameters, and returns an array of all the recipes that can be made from the
+            ingredients in the pantry and fridge.
+        search: takes string of recipe name as parameter, returns the Recipe object that the name belongs to, or null if no recipe found.
+*/
 
 import java.io.File;
 import java.util.*;
