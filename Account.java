@@ -1,4 +1,5 @@
-/*Account Class
+/*
+Account Class
   The Account class provides a structure to reference a specific household. 
   Each Account instance has a household code and a member list. 
   To create an Account instance, a household code and a member list are required. 
