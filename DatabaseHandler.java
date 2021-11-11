@@ -1,4 +1,19 @@
-
+/*
+    DatabaseHandler class
+    Handles the database files for all the household pantries and fridges
+    Contstructor takes in string household code input to see which household's pantry/fridge to access.
+    Reads files and stores the ingredients in pantry and fridge as an array
+    Backend, has methods to allow access to the database
+    Methods:
+        printPantry: prints pantry
+        printFridge: prints fridge
+        addToPantry: takes Item object as parameter and adds it to the pantry array of the household
+        addToFridge: takes Item object as parameter and adds it to the fridge array of the household
+        removeFromPantry: takes String of item name as parameter and remove from pantry array of the household
+        removeFromFridge: takes String of item name as parameter and removes from fridge array of the household
+        get methods: return the respective objects asked for
+        writeToPantry/Fridge: updates the pantry and fridge files for respective household after changes have been made to the array.
+*/
 import java.util.*;
 import java.io.*;
 
