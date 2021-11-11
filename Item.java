@@ -34,7 +34,15 @@ public class Item {
         return expDate;
     }
 
-    public void setExpDate(LocalDate expDate) {
+    public void setExpDate(String expD) {
+        String[] chars = expD.split("");
+        String temp = chars[0]+chars[1]+chars[2]+chars[3]+"-"+chars[4]+chars[5]+"-"+chars[6]+chars[7];
+        this.expDate = LocalDate.parse(temp);
+    }
+
+    public void setExpDate(LocalDate expD) {
+        this.expDate = expD;
+    }
       
     public LocalDate getexpDate() {
         return expDate;
