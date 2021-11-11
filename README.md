@@ -1,4 +1,6 @@
 # Virtual-Pantry-App
+**Note: This is better viewed as source. Click the "<>" button to view this as source in the top right 
+
 To start the program, run the Main.java. 
 This will put you into the Log In screen.
 A successful log in can be achieved with "M 1" as the display name
