@@ -1,3 +1,7 @@
+/*
+    The Main executable file of the program, contains the main method
+    Runs the program by creating a Login GUI from which the user Logs in
+*/
 
 public class Main 
 {
