@@ -1,3 +1,15 @@
+/*
+    AccountDBH class
+    Handles the database files for the accounts
+    Takes input from accounts.txt file, which contains the household codes and every member for each household code
+    Stores the household code and member as a Account object, and all accounts are stored in an array.
+    Backend, has methods so that the rest of the program and user can access the household codes and members
+    Methods:
+        printAccounts: prints all the accounts, for testing purposes
+        addMember: adds a member to the household, takes two parameters, the household code to input in, and the member object to input
+        removeMember: removes member from the household, takes two parameters, the household code to remove from, and the name of the member to remove
+        updateAccountFile: method to update the database file, is called everytime a change is made to the accounts array.
+*/
 import java.io.File;
 import java.io.PrintWriter;
 import java.util.Objects;
