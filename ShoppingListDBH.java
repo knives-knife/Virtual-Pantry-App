@@ -1,3 +1,14 @@
+/*
+    ShoppingListDBH class
+    Reads from household SL files, and stores information in file as Item array
+    Constructor takes household code as parameter to know which file to access
+    Methods:
+        printSL: prints the ShoppingList array
+        addToSL: takes Item as parameter and adds to the array of Shopping list
+        removeFromSL: takes name of item as parameter and removes from shopping list array
+        writeToSL: update ShoppingList file of respective hh code after a change to the shopping list array has been made.
+*/
+
 import java.io.File;
 import java.io.PrintWriter;
 import java.util.Scanner;
