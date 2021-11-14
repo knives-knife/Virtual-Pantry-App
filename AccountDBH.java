@@ -24,11 +24,9 @@ public class AccountDBH
     public AccountDBH() throws Exception
     {
         Scanner inA;
-        File accountsFile;
         try
         {
-            accountsFile = new File("accounts.txt");
-            inA = new Scanner(accountsFile);
+            inA = new Scanner(getClass().getResourceAsStream("accounts.txt"));
             accounts = new Account[100];
             int index = 0;
             while (inA.hasNextLine())

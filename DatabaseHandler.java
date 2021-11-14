@@ -27,8 +27,8 @@ public class DatabaseHandler {
     public DatabaseHandler(String x) throws Exception{
         Scanner inP;
         Scanner inF;
-        File hhPantryF;
-        File hhFridgeF;
+        String hhPantryF;
+        String hhFridgeF;
 
         hhCode = x;
         pSize = fSize = 0;
@@ -37,23 +37,23 @@ public class DatabaseHandler {
             //the string equals the household code
             switch (hhCode) {
                 case "ABCDEFGHI":
-                    hhPantryF = new File("householdPantry1.txt");
-                    hhFridgeF = new File("householdFridge1.txt");
+                    hhPantryF = "householdPantry1.txt";
+                    hhFridgeF = "householdFridge1.txt";
                     break;
                 case "JKLMNOPQR":
-                    hhPantryF = new File("householdPantry2.txt");
-                    hhFridgeF = new File("householdFridge2.txt");
+                    hhPantryF = "householdPantry2.txt";
+                    hhFridgeF = "householdFridge2.txt";
                     break;
                 case "STUVWXYZA":
-                    hhPantryF = new File("householdPantry3.txt");
-                    hhFridgeF = new File("householdFridge3.txt");
+                    hhPantryF = "householdPantry3.txt";
+                    hhFridgeF = "householdFridge3.txt";
                     break;
                 default:
                     throw new Exception("Invalid String");
             }
 
-            inP = new Scanner(hhPantryF);
-            inF = new Scanner(hhFridgeF);
+            inP = new Scanner(getClass().getResourceAsStream(hhPantryF));
+            inF = new Scanner(getClass().getResourceAsStream(hhFridgeF));
 
             pantry = new Item[100];       //maximum value hardcoded to 100
             fridge = new Item[100];

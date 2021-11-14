@@ -21,8 +21,7 @@ public class RecipeDBH {
     public RecipeDBH(){
         Scanner in;
         try {
-            File recipe_file = new File("recipes.txt");
-            in = new Scanner(recipe_file);
+            in = new Scanner(getClass().getResourceAsStream("recipes.txt"));
             rSize = 0;
 
             recipes = new Recipe[100];
