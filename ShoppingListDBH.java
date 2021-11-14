@@ -20,7 +20,7 @@ public class ShoppingListDBH {
 
     public ShoppingListDBH(String x){
         Scanner in;
-        File hhSLF;
+        String hhSLF;
 
         hhCode = x;
         slSize = 0;
@@ -29,19 +29,19 @@ public class ShoppingListDBH {
             //the string equals the household code
             switch (hhCode) {
                 case "ABCDEFGHI":
-                    hhSLF = new File("householdSL1.txt");
+                    hhSLF = "householdSL1.txt";
                     break;
                 case "JKLMNOPQR":
-                    hhSLF = new File("householdSL2.txt");
+                    hhSLF = "householdSL2.txt";
                     break;
                 case "STUVWXYZA":
-                    hhSLF = new File("householdSL3.txt");
+                    hhSLF = "householdSL3.txt";
                     break;
                 default:
                     throw new Exception("Invalid String");
             }
 
-            in = new Scanner(hhSLF);
+            in = new Scanner(getClass().getResourceAsStream(hhSLF));
             shoppingList = new Item[100];       //maximum value hardcoded to 100
 
             int index = 0;
