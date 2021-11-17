@@ -67,6 +67,7 @@ public class ViewRecipeGUI extends javax.swing.JFrame
         botBanRecipesButton = new javax.swing.JButton();
         botBanHHButton = new javax.swing.JButton();
         errorLabel = new javax.swing.JLabel();
+        botBanSLButton = new javax.swing.JButton();
         itemScrollPane = new javax.swing.JScrollPane();
         ingredientsJList = new javax.swing.JList<>();
         addToSLButton = new javax.swing.JButton();
@@ -133,26 +134,37 @@ public class ViewRecipeGUI extends javax.swing.JFrame
         errorLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         errorLabel.setText("Invalid Selection");
 
+        botBanSLButton.setText("Shopping List");
+        botBanSLButton.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                botBanSLButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout botBanPanelLayout = new javax.swing.GroupLayout(botBanPanel);
         botBanPanel.setLayout(botBanPanelLayout);
         botBanPanelLayout.setHorizontalGroup(
             botBanPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(botBanPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(botBanFridgeButton, javax.swing.GroupLayout.DEFAULT_SIZE, 73, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(botBanPantryButton, javax.swing.GroupLayout.DEFAULT_SIZE, 73, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(botBanDashboardButton, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(botBanRecipesButton, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(botBanHHButton, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
-                .addGap(22, 22, 22))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, botBanPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(errorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(73, 73, 73))
+            .addGroup(botBanPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(botBanFridgeButton, javax.swing.GroupLayout.DEFAULT_SIZE, 69, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(botBanPantryButton, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(botBanPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(botBanDashboardButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(botBanSLButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(botBanRecipesButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(botBanHHButton, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
+                .addGap(22, 22, 22))
         );
         botBanPanelLayout.setVerticalGroup(
             botBanPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -165,7 +177,9 @@ public class ViewRecipeGUI extends javax.swing.JFrame
                     .addComponent(botBanDashboardButton)
                     .addComponent(botBanRecipesButton)
                     .addComponent(botBanHHButton))
-                .addGap(46, 46, 46))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(botBanSLButton)
+                .addGap(16, 16, 16))
         );
 
         ingredientsJList.setModel(new javax.swing.AbstractListModel<String>()
@@ -316,6 +330,13 @@ public class ViewRecipeGUI extends javax.swing.JFrame
         //intentionally left blank
     }//GEN-LAST:event_ingredientsJListMouseWheelMoved
 
+    private void botBanSLButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_botBanSLButtonActionPerformed
+    {//GEN-HEADEREND:event_botBanSLButtonActionPerformed
+        this.dispose();
+        ShoppingListGUI sl = new ShoppingListGUI(account, member);
+        sl.setVisible(true);
+    }//GEN-LAST:event_botBanSLButtonActionPerformed
+
     //switch to FridgeGUI when the fridge button is clicked
     private void botBanFridgeButtonActionPerformed(java.awt.event.ActionEvent evt)
     {
@@ -365,6 +386,7 @@ public class ViewRecipeGUI extends javax.swing.JFrame
     private javax.swing.JPanel botBanPanel;
     private javax.swing.JButton botBanPantryButton;
     private javax.swing.JButton botBanRecipesButton;
+    private javax.swing.JButton botBanSLButton;
     private javax.swing.JLabel descLabel;
     private javax.swing.JLabel descLine1Label;
     private javax.swing.JLabel descLine2Label;

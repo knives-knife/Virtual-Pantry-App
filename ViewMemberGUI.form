@@ -108,8 +108,11 @@
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Component id="botBanPantryButton" max="32767" attributes="0"/>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Component id="botBanDashboardButton" max="32767" attributes="0"/>
-                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="botBanDashboardButton" max="32767" attributes="0"/>
+                          <Component id="botBanSLButton" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Component id="botBanRecipesButton" max="32767" attributes="0"/>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Component id="botBanHHButton" max="32767" attributes="0"/>
@@ -128,7 +131,9 @@
                           <Component id="botBanRecipesButton" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="botBanHHButton" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="botBanSLButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -172,6 +177,14 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botBanHHButtonActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="botBanSLButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Shopping List"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botBanSLButtonActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

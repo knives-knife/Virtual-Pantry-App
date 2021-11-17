@@ -52,6 +52,7 @@ public class ViewMemberGUI extends javax.swing.JFrame
         botBanDashboardButton = new javax.swing.JButton();
         botBanRecipesButton = new javax.swing.JButton();
         botBanHHButton = new javax.swing.JButton();
+        botBanSLButton = new javax.swing.JButton();
         hhCodeLabel = new javax.swing.JLabel();
         HeadOfHouseholdStatusLabel = new javax.swing.JLabel();
         HoHStatusLabel = new javax.swing.JLabel();
@@ -110,6 +111,15 @@ public class ViewMemberGUI extends javax.swing.JFrame
             }
         });
 
+        botBanSLButton.setText("Shopping List");
+        botBanSLButton.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                botBanSLButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout botBanPanelLayout = new javax.swing.GroupLayout(botBanPanel);
         botBanPanel.setLayout(botBanPanelLayout);
         botBanPanelLayout.setHorizontalGroup(
@@ -120,8 +130,10 @@ public class ViewMemberGUI extends javax.swing.JFrame
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(botBanPantryButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(botBanDashboardButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(botBanPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(botBanDashboardButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(botBanSLButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(botBanRecipesButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(botBanHHButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -137,7 +149,9 @@ public class ViewMemberGUI extends javax.swing.JFrame
                     .addComponent(botBanDashboardButton)
                     .addComponent(botBanRecipesButton)
                     .addComponent(botBanHHButton))
-                .addGap(46, 46, 46))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(botBanSLButton)
+                .addGap(16, 16, 16))
         );
 
         hhCodeLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -200,6 +214,13 @@ public class ViewMemberGUI extends javax.swing.JFrame
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void botBanSLButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_botBanSLButtonActionPerformed
+    {//GEN-HEADEREND:event_botBanSLButtonActionPerformed
+        this.dispose();
+        ShoppingListGUI sl = new ShoppingListGUI(account, member);
+        sl.setVisible(true);
+    }//GEN-LAST:event_botBanSLButtonActionPerformed
+
     //switch to FridgeGUI when the fridge button is clicked
     private void botBanFridgeButtonActionPerformed(java.awt.event.ActionEvent evt)
     {
@@ -252,6 +273,7 @@ public class ViewMemberGUI extends javax.swing.JFrame
     private javax.swing.JPanel botBanPanel;
     private javax.swing.JButton botBanPantryButton;
     private javax.swing.JButton botBanRecipesButton;
+    private javax.swing.JButton botBanSLButton;
     private javax.swing.JLabel hhCodeLabel;
     private javax.swing.JLabel householdCodeLabel;
     private javax.swing.JLabel memDNLabel;

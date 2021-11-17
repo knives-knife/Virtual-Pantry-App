@@ -61,6 +61,7 @@ public class PantryGUI extends javax.swing.JFrame
         botBanRecipesButton = new javax.swing.JButton();
         botBanHHButton = new javax.swing.JButton();
         errorLabel = new javax.swing.JLabel();
+        botBanSLButton = new javax.swing.JButton();
         itemScrollPane = new javax.swing.JScrollPane();
         itemJList = new javax.swing.JList<>();
         addItemButton = new javax.swing.JButton();
@@ -124,26 +125,37 @@ public class PantryGUI extends javax.swing.JFrame
         errorLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         errorLabel.setText("Invalid Selection");
 
+        botBanSLButton.setText("Shopping List");
+        botBanSLButton.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                botBanSLButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout botBanPanelLayout = new javax.swing.GroupLayout(botBanPanel);
         botBanPanel.setLayout(botBanPanelLayout);
         botBanPanelLayout.setHorizontalGroup(
             botBanPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, botBanPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(errorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(73, 73, 73))
             .addGroup(botBanPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(botBanFridgeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(botBanPantryButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(botBanDashboardButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(botBanPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(botBanDashboardButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(botBanSLButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(botBanRecipesButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(botBanHHButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(22, 22, 22))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, botBanPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(errorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(73, 73, 73))
         );
         botBanPanelLayout.setVerticalGroup(
             botBanPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,7 +168,9 @@ public class PantryGUI extends javax.swing.JFrame
                     .addComponent(botBanDashboardButton)
                     .addComponent(botBanRecipesButton)
                     .addComponent(botBanHHButton))
-                .addGap(46, 46, 46))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(botBanSLButton)
+                .addGap(16, 16, 16))
         );
 
         itemJList.setModel(new javax.swing.AbstractListModel<String>()
@@ -254,6 +268,13 @@ public class PantryGUI extends javax.swing.JFrame
         //intentionally left blank
     }//GEN-LAST:event_itemJListMouseWheelMoved
 
+    private void botBanSLButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_botBanSLButtonActionPerformed
+    {//GEN-HEADEREND:event_botBanSLButtonActionPerformed
+        this.dispose();
+        ShoppingListGUI sl = new ShoppingListGUI(account, member);
+        sl.setVisible(true);
+    }//GEN-LAST:event_botBanSLButtonActionPerformed
+
     //switch to FridgeGUI when the fridge button is clicked
     private void botBanFridgeButtonActionPerformed(java.awt.event.ActionEvent evt)
     {
@@ -306,6 +327,7 @@ public class PantryGUI extends javax.swing.JFrame
     private void removeItemButtonActionPerformed(java.awt.event.ActionEvent evt)
     {
         //TODO update itemJList after removal
+        errorLabel.setVisible(false);
         //get the name of the item to be removed
         String itemToRemoveName = itemJList.getSelectedValue();
         //if no item was selected, tell user
@@ -324,6 +346,7 @@ public class PantryGUI extends javax.swing.JFrame
                 dbh = new DatabaseHandler(account.getHouseholdCode());
                 //remove the item from the accounts pantry
                 dbh.deleteFromPantry(itemToRemoveName);
+                itemModel.removeElement(itemToRemoveName);
             }
             //catch error making the DatabaseHandler
             //tell user item was not removed
@@ -344,6 +367,7 @@ public class PantryGUI extends javax.swing.JFrame
     private javax.swing.JPanel botBanPanel;
     private javax.swing.JButton botBanPantryButton;
     private javax.swing.JButton botBanRecipesButton;
+    private javax.swing.JButton botBanSLButton;
     private javax.swing.JLabel errorLabel;
     private javax.swing.JList<String> itemJList;
     private javax.swing.JScrollPane itemScrollPane;

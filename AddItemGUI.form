@@ -54,10 +54,13 @@
                   <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Component id="botBanPantryButton" max="32767" attributes="0"/>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
-                  <Component id="botBanDashboardButton" max="32767" attributes="0"/>
-                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="botBanDashboardButton" max="32767" attributes="0"/>
+                      <Component id="bonBanSLButton" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Component id="botBanRecipesButton" max="32767" attributes="0"/>
-                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="botBanHHButton" max="32767" attributes="0"/>
                   <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
               </Group>
@@ -74,7 +77,9 @@
                       <Component id="botBanRecipesButton" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="botBanHHButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="bonBanSLButton" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -120,6 +125,14 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botBanHHButtonActionPerformed"/>
           </Events>
         </Component>
+        <Component class="javax.swing.JButton" name="bonBanSLButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Shopping List"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bonBanSLButtonActionPerformed"/>
+          </Events>
+        </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="body">
@@ -141,9 +154,9 @@
                               <Component id="itemNameField" min="-2" pref="156" max="-2" attributes="0"/>
                               <Component id="itemNameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="itemExpLabel" min="-2" max="-2" attributes="0"/>
-                              <Component id="itemExpField" min="-2" pref="156" max="-2" attributes="0"/>
+                              <Component id="itemQuantityField" min="-2" pref="156" max="-2" attributes="0"/>
                               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                              <Component id="itemQuantityField" alignment="0" min="-2" pref="156" max="-2" attributes="0"/>
+                              <Component id="itemExpField" alignment="0" min="-2" pref="156" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -153,6 +166,7 @@
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
+              <Component id="successLabel" alignment="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -160,18 +174,20 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="title" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="successLabel" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                   <Component id="itemNameLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="itemNameField" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="itemExpField" min="-2" max="-2" attributes="0"/>
+                  <Component id="itemQuantityField" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                   <Component id="itemExpLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="itemQuantityField" min="-2" max="-2" attributes="0"/>
+                  <Component id="itemExpField" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="14" max="32767" attributes="0"/>
                   <Component id="pantryRadioButton" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -214,16 +230,16 @@
             <Property name="text" type="java.lang.String" value="Item Quantity:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="itemQuantityField">
-        </Component>
         <Component class="javax.swing.JTextField" name="itemExpField">
+        </Component>
+        <Component class="javax.swing.JTextField" name="itemQuantityField">
           <Properties>
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[60, 20]"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itemExpFieldActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itemQuantityFieldActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="addItemButton">
@@ -281,6 +297,15 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itemNameFieldActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="successLabel">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="ff" red="0" type="rgb"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="Success"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>

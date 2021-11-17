@@ -1,44 +1,46 @@
+
+
 /*
-RecipesGUI
-    The RecipesGUI has a bottom banner that allows the user to navigate to other pages.
+PantryGUI
+    The GUI has a bottom banner that allows the user to navigate to other pages.
         The Fridge button navigates the user to the FridgeGUI
-        The Pantry button navigates the user to the PantryGUI
-        The Dashboard button navigates the user to the DashboardGUI
-        The Recipes button is disabled since the user is already in the RecipesGUI
+        The Pantry button is disabled since the user is already in the PantryGUI
+        The Dashboard button navigates the user the the DashboardGUI
+        The Recipes button navigates the user to the RecipesGUI
         The Household button navigates the user to the HouseholdGUI
-    The RecipesGUI shows the user the recipes that can be made from the Account's
-        pantry and fridge 
-    When the view recipe button is clicked, the user will be navigated to the ViewRecipeGUI
-*/
+    The PantryGUI shows the user the items in the Account's pantry
+    When the add item button is clicked, the user will be navigated to the AddItemGUI
+    When the remove item button is clicked, if an item is selected in the list, the
+        selected item is removed from the Account's pantry
+        **Note: currently does not refresh list in the GUI, but does successfully
+            remove from pantry
+ */
 /**
  *
  * @author joahp
  */
-public class RecipesGUI extends javax.swing.JFrame
+public class ShoppingListGUI extends javax.swing.JFrame
 {
 
-    /**
-     * Creates new form DashboardGUI
-     */
     private Account account;
     private Member member;
     private javax.swing.DefaultListModel<String> itemModel;
 
-    public RecipesGUI()
+    public ShoppingListGUI()
     {
         initComponents();
-        botBanRecipesButton.setEnabled(false);
+        botBanSLButton.setEnabled(false);
     }
 
-    public RecipesGUI(Account acc, Member mem)
+    public ShoppingListGUI(Account acc, Member mem)
     {
         initComponents();
-        botBanRecipesButton.setEnabled(false);
+        botBanSLButton.setEnabled(false);
         errorLabel.setVisible(false);
         account = acc;
         member = mem;
         itemModel = new javax.swing.DefaultListModel<String>();
-        recipeJList.setModel(itemModel);
+        itemJList.setModel(itemModel);
         populateItemModel();
 
     }
@@ -64,14 +66,15 @@ public class RecipesGUI extends javax.swing.JFrame
         errorLabel = new javax.swing.JLabel();
         botBanSLButton = new javax.swing.JButton();
         itemScrollPane = new javax.swing.JScrollPane();
-        recipeJList = new javax.swing.JList<>();
-        viewRecipeButton = new javax.swing.JButton();
+        itemJList = new javax.swing.JList<>();
+        addItemButton = new javax.swing.JButton();
+        removeItemButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         title.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        title.setText("Recipes");
+        title.setText("Shopping List");
         title.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         itemsLabel.setText("Items:");
@@ -140,7 +143,7 @@ public class RecipesGUI extends javax.swing.JFrame
             botBanPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, botBanPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(errorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(errorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(73, 73, 73))
             .addGroup(botBanPanelLayout.createSequentialGroup()
                 .addContainerGap()
@@ -148,10 +151,10 @@ public class RecipesGUI extends javax.swing.JFrame
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(botBanPantryButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(botBanPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(botBanDashboardButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(botBanSLButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(botBanPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(botBanSLButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(botBanDashboardButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(botBanRecipesButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(botBanHHButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -173,29 +176,39 @@ public class RecipesGUI extends javax.swing.JFrame
                 .addGap(16, 16, 16))
         );
 
-        recipeJList.setModel(new javax.swing.AbstractListModel<String>()
+        itemJList.setModel(new javax.swing.AbstractListModel<String>()
         {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        recipeJList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        recipeJList.addMouseWheelListener(new java.awt.event.MouseWheelListener()
+        itemJList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        itemJList.addMouseWheelListener(new java.awt.event.MouseWheelListener()
         {
             public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt)
             {
-                recipeJListMouseWheelMoved(evt);
+                itemJListMouseWheelMoved(evt);
             }
         });
-        itemScrollPane.setViewportView(recipeJList);
+        itemScrollPane.setViewportView(itemJList);
 
-        viewRecipeButton.setText("View Recipe");
-        viewRecipeButton.setPreferredSize(new java.awt.Dimension(45, 23));
-        viewRecipeButton.addActionListener(new java.awt.event.ActionListener()
+        addItemButton.setText("Add an Item");
+        addItemButton.setPreferredSize(new java.awt.Dimension(45, 23));
+        addItemButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
-                viewRecipeButtonActionPerformed(evt);
+                addItemButtonActionPerformed(evt);
+            }
+        });
+
+        removeItemButton.setText("Remove Item");
+        removeItemButton.setPreferredSize(new java.awt.Dimension(45, 23));
+        removeItemButton.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                removeItemButtonActionPerformed(evt);
             }
         });
 
@@ -215,8 +228,11 @@ public class RecipesGUI extends javax.swing.JFrame
                     .addGroup(bodyLayout.createSequentialGroup()
                         .addGap(50, 50, 50)
                         .addGroup(bodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(itemScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
-                            .addComponent(viewRecipeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(itemScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(bodyLayout.createSequentialGroup()
+                                .addComponent(addItemButton, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(removeItemButton, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         bodyLayout.setVerticalGroup(
@@ -229,7 +245,9 @@ public class RecipesGUI extends javax.swing.JFrame
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(itemScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(viewRecipeButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(bodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(addItemButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(removeItemButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(botBanPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -248,10 +266,10 @@ public class RecipesGUI extends javax.swing.JFrame
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void recipeJListMouseWheelMoved(java.awt.event.MouseWheelEvent evt)//GEN-FIRST:event_recipeJListMouseWheelMoved
-    {//GEN-HEADEREND:event_recipeJListMouseWheelMoved
+    private void itemJListMouseWheelMoved(java.awt.event.MouseWheelEvent evt)//GEN-FIRST:event_itemJListMouseWheelMoved
+    {//GEN-HEADEREND:event_itemJListMouseWheelMoved
         //intentionally left blank
-    }//GEN-LAST:event_recipeJListMouseWheelMoved
+    }//GEN-LAST:event_itemJListMouseWheelMoved
 
     private void botBanSLButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_botBanSLButtonActionPerformed
     {//GEN-HEADEREND:event_botBanSLButtonActionPerformed
@@ -301,29 +319,49 @@ public class RecipesGUI extends javax.swing.JFrame
     }
 
     //switch to AddItemGUI when the add an item button is clicked
-    private void viewRecipeButtonActionPerformed(java.awt.event.ActionEvent evt)
+    private void addItemButtonActionPerformed(java.awt.event.ActionEvent evt)
     {
-        //get the name of the recipe to be viewed
-        String recipeName = recipeJList.getSelectedValue();
-        //if no recipe was selected, tell user
-        if (recipeName == null)
+        this.dispose();
+        AddItemGUI addItem = new AddItemGUI(account, member);
+        addItem.setVisible(true);
+    }
+
+    //remove the selected item from the pantry of the account
+    private void removeItemButtonActionPerformed(java.awt.event.ActionEvent evt)
+    {
+        errorLabel.setVisible(false);
+        //get the name of the item to be removed
+        String itemToRemoveName = itemJList.getSelectedValue();
+        //if no item was selected, tell user
+        if (itemToRemoveName == null)
         {
-            errorLabel.setText("There is no recipe selected");
+            errorLabel.setText("There is no item selected");
             errorLabel.setVisible(true);
         }
-        //there is a recipe that was selected
+        //there is an item that was selected
         else
         {
-            RecipeDBH rdbh = new RecipeDBH();
-            this.dispose();
-            ViewRecipeGUI viewRecipe = new ViewRecipeGUI(account, member, 
-                    rdbh.search(recipeName));
-            viewRecipe.setVisible(true);
+            ShoppingListDBH sldbh;
+            //try to create DatabaseHandler
+            try
+            {
+                sldbh = new ShoppingListDBH(account.getHouseholdCode());
+                //remove the item from the accounts pantry
+                sldbh.deleteFromSL(itemToRemoveName);
+                itemModel.removeElement(itemToRemoveName);
+            }
+            //catch error making the DatabaseHandler
+            //tell user item was not removed
+            catch (Exception ex)
+            {
+                errorLabel.setText("There was a problem with removing your item");
+                errorLabel.setVisible(true);
+            }
         }
-        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addItemButton;
     private javax.swing.JPanel body;
     private javax.swing.JButton botBanDashboardButton;
     private javax.swing.JButton botBanFridgeButton;
@@ -333,23 +371,20 @@ public class RecipesGUI extends javax.swing.JFrame
     private javax.swing.JButton botBanRecipesButton;
     private javax.swing.JButton botBanSLButton;
     private javax.swing.JLabel errorLabel;
+    private javax.swing.JList<String> itemJList;
     private javax.swing.JScrollPane itemScrollPane;
     private javax.swing.JLabel itemsLabel;
-    private javax.swing.JList<String> recipeJList;
+    private javax.swing.JButton removeItemButton;
     private javax.swing.JLabel title;
-    private javax.swing.JButton viewRecipeButton;
     // End of variables declaration//GEN-END:variables
 
-    //fill the list with available recipes
     private void populateItemModel()
     {
-        DatabaseHandler dbh = null;
-        RecipeDBH rdbh = null;
-        //try to make the RecipeDBH
+        ShoppingListDBH sldbh = null;
+        //try to make the DatabasHandler
         try
         {
-            dbh = new DatabaseHandler(account.getHouseholdCode());
-            rdbh = new RecipeDBH();
+            sldbh = new ShoppingListDBH(account.getHouseholdCode());
         }
         //catch error
         //return user to LogInGUI
@@ -360,17 +395,16 @@ public class RecipesGUI extends javax.swing.JFrame
             logIn.setVisible(true);
             return;
         }
-        
-            //get available recipes from RecipeDBH
-            Recipe[] recipes = rdbh.getRecipes(dbh.getPantry(),
-                    dbh.getFridge());
-            //add non-null recipe's names to the GUI list
-            for (Recipe r : recipes)
+
+        //get pantry from DatabasHandler
+        Item[] sl = sldbh.getSL();
+        //add non-null items' names to the GUI list
+        for (Item i : sl)
+        {
+            if (i != null)
             {
-                if (r != null)
-                {
-                    itemModel.addElement(r.getName());
-                }
+                this.itemModel.addElement(i.getName());
             }
+        }
     }
 }
