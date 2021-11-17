@@ -11,7 +11,6 @@
         search: takes string of recipe name as parameter, returns the Recipe object that the name belongs to, or null if no recipe found.
 */
 
-import java.io.File;
 import java.util.*;
 
 public class RecipeDBH {

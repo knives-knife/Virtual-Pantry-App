@@ -90,23 +90,25 @@ public class ShoppingListDBH {
 
     public void writeToSL(){
         try {
-            File hhFridgeF;
+            String hhFridgeF;
             //the string equals the household code
             switch (hhCode) {
                 case "ABCDEFGHI":
-                    hhFridgeF = new File("householdSL1.txt");
+                    hhFridgeF = "householdSL1.txt";
                     break;
                 case "JKLMNOPQR":
-                    hhFridgeF = new File("householdSL2.txt");
+                    hhFridgeF = "householdSL2.txt";
                     break;
                 case "STUVWXYZA":
-                    hhFridgeF = new File("householdSL3.txt");
+                    hhFridgeF = "householdSL3.txt";
                     break;
                 default:
                     throw new Exception("Invalid String");
             }
 
-            PrintWriter out = new PrintWriter(hhFridgeF);
+            String filePath = new File("").getAbsolutePath();
+            filePath = filePath.concat("\\src\\" + hhFridgeF);
+            PrintWriter out = new PrintWriter(filePath);
             for (Item s : shoppingList) {
                 if (s != null) {
                     out.println(s.getName());
@@ -118,6 +120,10 @@ public class ShoppingListDBH {
             System.out.println("Exception: " + e.getMessage());
         }
     }
-
+    
+    Item[] getSL()
+    {
+        return this.shoppingList;
+    }
 
 }

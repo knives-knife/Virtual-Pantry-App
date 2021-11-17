@@ -86,8 +86,9 @@ public class AccountDBH
 
     public void updateAccountFile(){
         try {
-            File hhFridgeF = new File("accounts.txt");
-            PrintWriter out = new PrintWriter(hhFridgeF);
+            String filePath = new File("").getAbsolutePath();
+            filePath = filePath.concat("\\src\\accounts.txt");
+            PrintWriter out = new PrintWriter(filePath);
             String asterisk = "";
             for (Account s : accounts) {
                 if (s != null) {
