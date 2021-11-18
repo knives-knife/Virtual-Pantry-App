@@ -29,8 +29,6 @@ These should be automatically input to the text fields when the
    - The FridgeGUI shows the user the items in the Account's fridge
    - When the add item button is clicked, the user will be navigated to the AddItemGUI
    - When the remove item button is clicked, if an item is selected in the list, the selected item is removed from the Account's fridge
-        
-    **Note: currently does not refresh list in the GUI, but does successfully remove from fridge
             
 ## **HouseholdGUI**
    - The HouseholodGUI has a bottom banner that allows the user to navigate to other pages.
@@ -43,8 +41,6 @@ These should be automatically input to the text fields when the
    - When the view member button is clicked, the user will be navigated to the ViewMemberGUI
    - When the remove item button is clicked, if a member is selected in the list, the selected member is removed from the Account's member list
         
-    **Note: currently does not refresh list in the GUI, but does successfully remove from member list
-            
 ## **PantryGUI**
    - The GUI has a bottom banner that allows the user to navigate to other pages.
      - The Fridge button navigates the user to the FridgeGUI
@@ -55,8 +51,6 @@ These should be automatically input to the text fields when the
    - The PantryGUI shows the user the items in the Account's pantry
    - When the add item button is clicked, the user will be navigated to the AddItemGUI
    - When the remove item button is clicked, if an item is selected in the list, the selected item is removed from the Account's pantry
-   
-    **Note: currently does not refresh list in the GUI, but does successfully remove from pantry
             
 ## **RecipesGUI**
    - The RecipesGUI has a bottom banner that allows the user to navigate to other pages.
@@ -89,6 +83,4 @@ These should be automatically input to the text fields when the
    - The ViewRecipeGUI will display the recipes's name at the top of the screen
    - The ViewRecipeGUI will display the description under the description label
    - The ViewRecipeGUI will display a list of ingredients under the ingredients label
-   - When the add item to shopping list button is clicked, if an item is selected in the list, the selected item is added to the Account's shopping list
-        
-    **Note: not implemented yet 
+   - When the add item to shopping list button is clicked, if an item is selected in the list, the selected item is added to the Account's shopping list (Not implemented)
