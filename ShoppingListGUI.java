@@ -9,12 +9,10 @@ ShoppingListGUI
         The Recipes button navigates the user to the RecipesGUI
         The Household button navigates the user to the HouseholdGUI
         The Shopping List button is disabled since the user is already in the ShoppingListGUI
-    The PantryGUI shows the user the items in the Account's pantry
+    The ShoppingListGUI shows the user the items in the Account's shopping list
     When the add item button is clicked, the user will be navigated to the AddItemGUI
     When the remove item button is clicked, if an item is selected in the list, the
-        selected item is removed from the Account's pantry
-        **Note: currently does not refresh list in the GUI, but does successfully
-            remove from pantry
+        selected item is removed from the Account's shopiing list
  */
 /**
  *

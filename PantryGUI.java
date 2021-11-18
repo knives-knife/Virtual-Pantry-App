@@ -11,8 +11,6 @@ PantryGUI
     When the add item button is clicked, the user will be navigated to the AddItemGUI
     When the remove item button is clicked, if an item is selected in the list, the
         selected item is removed from the Account's pantry
-        **Note: currently does not refresh list in the GUI, but does successfully
-            remove from pantry
 */
 /**
  *
