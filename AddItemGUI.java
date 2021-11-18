@@ -327,6 +327,7 @@ public class AddItemGUI extends javax.swing.JFrame
         //intentionally left blank
     }//GEN-LAST:event_itemQuantityFieldActionPerformed
 
+    //switch to ShoppingListGUI when the shopping list button is clicked
     private void bonBanSLButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_bonBanSLButtonActionPerformed
     {//GEN-HEADEREND:event_bonBanSLButtonActionPerformed
         this.dispose();

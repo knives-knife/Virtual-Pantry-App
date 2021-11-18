@@ -6,6 +6,7 @@ HouseholdGUI
         The Dashboard button navigates the user to the DashboardGUI
         The Recipes button navigates the user to the RecipesGUI
         The Household button is disabled since the user is already in the HouseholdGUI
+        The Shopping List button navigates the user to the ShoppingListGUI
     The GUI shows the user the items in the Account's 
     When the view member button is clicked, the user will be navigated to the ViewMemberGUI
     When the remove item button is clicked, if a member is selected in the list, the
@@ -267,6 +268,7 @@ public class HouseholdGUI extends javax.swing.JFrame
         //intentionally left blank
     }//GEN-LAST:event_memberJListMouseWheelMoved
 
+    //switch to ShoppingListGUI when the shopping list button is clicked
     private void botBanSLButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_botBanSLButtonActionPerformed
     {//GEN-HEADEREND:event_botBanSLButtonActionPerformed
         this.dispose();

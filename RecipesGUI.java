@@ -6,6 +6,7 @@ RecipesGUI
         The Dashboard button navigates the user to the DashboardGUI
         The Recipes button is disabled since the user is already in the RecipesGUI
         The Household button navigates the user to the HouseholdGUI
+        The Shopping List button navigates the user to the ShoppingListGUI
     The RecipesGUI shows the user the recipes that can be made from the Account's
         pantry and fridge 
     When the view recipe button is clicked, the user will be navigated to the ViewRecipeGUI
@@ -253,6 +254,7 @@ public class RecipesGUI extends javax.swing.JFrame
         //intentionally left blank
     }//GEN-LAST:event_recipeJListMouseWheelMoved
 
+    //switch to ShoppingListGUI when the shopping list button is clicked
     private void botBanSLButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_botBanSLButtonActionPerformed
     {//GEN-HEADEREND:event_botBanSLButtonActionPerformed
         this.dispose();

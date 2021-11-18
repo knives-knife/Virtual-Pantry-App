@@ -6,6 +6,7 @@ DashboardGUI
         The Dashboard button is disabled since the user is already in the DashboardGUI
         The Recipes button navigates the user to the RecipesGUI
         The Household button navigates the user to the HouseholdGUI
+        The Shopping List button navigates the user to the ShoppingListGUI
     The DashboardGUI provides a GUI for the user to show the nearest expiration date in the accounts
         pantry and fridge, at most 3 available recipes , at most 3 members in the same household 
     When a recipe is clicked on, the ViewRecipeGUI will be called to view the recipes clicked on
@@ -505,6 +506,7 @@ public class DashboardGUI extends javax.swing.JFrame
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //switch to ShoppingListGUI when the shopping list button is clicked
     private void botBanSLButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_botBanSLButtonActionPerformed
     {//GEN-HEADEREND:event_botBanSLButtonActionPerformed
         this.dispose();

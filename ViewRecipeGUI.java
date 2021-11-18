@@ -6,6 +6,7 @@ ViewRecipeGUI
         The Dashboard button navigates the user to the DashboardGUI
         The Recipes button navigates the user to the RecipesGUI
         The Household button navigates the user to the HouseholdGUI
+        The Shopping List button navigates the user to the ShoppingListGUI
     The ViewRecipeGUI will display the recipes's name at the top of the screen
     The ViewRecipeGUI will display the description under the description label
     The ViewRecipeGUI will display a list of ingredients under the ingredients label
@@ -330,6 +331,7 @@ public class ViewRecipeGUI extends javax.swing.JFrame
         //intentionally left blank
     }//GEN-LAST:event_ingredientsJListMouseWheelMoved
 
+    //switch to ShoppingListGUI when the shopping list button is clicked
     private void botBanSLButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_botBanSLButtonActionPerformed
     {//GEN-HEADEREND:event_botBanSLButtonActionPerformed
         this.dispose();

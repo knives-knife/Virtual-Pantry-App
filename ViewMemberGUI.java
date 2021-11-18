@@ -6,6 +6,7 @@ ViewMemberGUI
         The Dashboard button navigates the user to the DashboardGUI
         The Recipes button navigates the user to the RecipesGUI
         The Household button navigates the user to the HouseholdGUI
+        The Shopping List button navigates the user to the ShoppingListGUI
     The ViewMemberGUI will display the member's display name at the top of the screen
     The ViewMemberGUI will display the member's household code under the household code label
     The ViewMemberGUI will display if the member is the head of household or not
@@ -214,6 +215,7 @@ public class ViewMemberGUI extends javax.swing.JFrame
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //switch to ShoppingListGUI when the shopping list button is clicked
     private void botBanSLButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_botBanSLButtonActionPerformed
     {//GEN-HEADEREND:event_botBanSLButtonActionPerformed
         this.dispose();
