@@ -9,7 +9,7 @@ These should be automatically input to the text fields when the
   Log In screen is started until the project is finished
  After logging in, the dashboard will be shown
  
- **DashboardGUI**
+**DashboardGUI**
     - The DashboardGUI has a bottom banner that allows the user to navigate to other pages.
       - The Fridge button navigates the user to the FridgeGUI
       - The Pantry button navigates the user to the PantryGUI
@@ -19,6 +19,7 @@ These should be automatically input to the text fields when the
     - The DashboardGUI provides a GUI for the user to show the nearest expiration date in the accounts pantry and fridge, at most 3 available recipes , at most 3 members in the same household 
     - When a recipe is clicked on, the ViewRecipeGUI will be called to view the recipes clicked on
     - When a member is clicked on, the ViewMemberGUI will be called to view the member clicked on
+    
 **FridgeGUI**
     - The FridgeGUI has a bottom banner that allows the user to navigate to other pages.
         - The Fridge button is disabled since the user is already in the FridgeGUI
@@ -32,6 +33,7 @@ These should be automatically input to the text fields when the
         selected item is removed from the Account's fridge
         **Note: currently does not refresh list in the GUI, but does successfully
             remove from fridge
+            
 **HouseholdGUI**
     - The HouseholodGUI has a bottom banner that allows the user to navigate to other pages.
       - The Fridge button navigates the user to the FridgeGUI
@@ -45,6 +47,7 @@ These should be automatically input to the text fields when the
       - selected member is removed from the Account's member list
         **Note: currently does not refresh list in the GUI, but does successfully
             remove from member list
+            
 **PantryGUI**
    - The GUI has a bottom banner that allows the user to navigate to other pages.
      - The Fridge button navigates the user to the FridgeGUI
@@ -58,6 +61,7 @@ These should be automatically input to the text fields when the
         selected item is removed from the Account's pantry
         **Note: currently does not refresh list in the GUI, but does successfully
             remove from pantry
+            
 **RecipesGUI**
    - The RecipesGUI has a bottom banner that allows the user to navigate to other pages.
      - The Fridge button navigates the user to the FridgeGUI
@@ -68,6 +72,7 @@ These should be automatically input to the text fields when the
    - The RecipesGUI shows the user the recipes that can be made from the Account's
         pantry and fridge 
     When the view recipe button is clicked, the user will be navigated to the ViewRecipeGUI
+    
 **ViewMemberGUI**
    - The ViewMemberGUI has a bottom banner that allows the user to navigate to other pages.
      - The Fridge button navigates the user to the FridgeGUI
@@ -78,6 +83,7 @@ These should be automatically input to the text fields when the
    - The ViewMemberGUI will display the member's display name at the top of the screen
    - The ViewMemberGUI will display the member's household code under the household code label
    - The ViewMemberGUI will display if the member is the head of household or not
+ 
 **ViewRecipeGUI**
    - The ViewRecipeGUI has a bottom banner that allows the user to navigate to other pages.
      - The Fridge button navigates the user to the FridgeGUI
