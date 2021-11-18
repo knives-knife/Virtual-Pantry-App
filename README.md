@@ -28,8 +28,7 @@ These should be automatically input to the text fields when the
        - The Household button navigates the user to the HouseholdGUI
    - The FridgeGUI shows the user the items in the Account's fridge
    - When the add item button is clicked, the user will be navigated to the AddItemGUI
-   - When the remove item button is clicked, if an item is selected in the list, the
-        selected item is removed from the Account's fridge
+   - When the remove item button is clicked, if an item is selected in the list, the selected item is removed from the Account's fridge
         
     **Note: currently does not refresh list in the GUI, but does successfully remove from fridge
             
@@ -42,8 +41,7 @@ These should be automatically input to the text fields when the
      - The Household button is disabled since the user is already in the HouseholdGUI
    - The GUI shows the user the items in the Account's 
    - When the view member button is clicked, the user will be navigated to the ViewMemberGUI
-   - When the remove item button is clicked, if a member is selected in the list, the
-     - selected member is removed from the Account's member list
+   - When the remove item button is clicked, if a member is selected in the list, the selected member is removed from the Account's member list
         
     **Note: currently does not refresh list in the GUI, but does successfully remove from member list
             
@@ -56,8 +54,7 @@ These should be automatically input to the text fields when the
      - The Household button navigates the user to the HouseholdGUI
    - The PantryGUI shows the user the items in the Account's pantry
    - When the add item button is clicked, the user will be navigated to the AddItemGUI
-   - When the remove item button is clicked, if an item is selected in the list, the
-        selected item is removed from the Account's pantry
+   - When the remove item button is clicked, if an item is selected in the list, the selected item is removed from the Account's pantry
    
     **Note: currently does not refresh list in the GUI, but does successfully remove from pantry
             
