@@ -11,8 +11,6 @@ HouseholdGUI
     When the view member button is clicked, the user will be navigated to the ViewMemberGUI
     When the remove item button is clicked, if a member is selected in the list, the
         selected member is removed from the Account's member list
-        **Note: currently does not refresh list in the GUI, but does successfully
-            remove from member list
 /**
  *
  * @author joahp
@@ -364,6 +362,7 @@ public class HouseholdGUI extends javax.swing.JFrame
                            memberToRemoveDN);
                    //remove the member from the member list in the account
                    account.removeMember(memberToRemoveDN);
+                   itemModel.removeElement(memberToRemoveDN);
                }
                //catch error making the AccountDBH
                //tell user member was not removed
