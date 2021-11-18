@@ -13,9 +13,9 @@ These should be automatically input to the text fields when the
     - The DashboardGUI has a bottom banner that allows the user to navigate to other pages.
       - The Fridge button navigates the user to the FridgeGUI
       - The Pantry button navigates the user to the PantryGUI
-      -  The Dashboard button is disabled since the user is already in the DashboardGUI
-      -  The Recipes button navigates the user to the RecipesGUI
-      -  The Household button navigates the user to the HouseholdGUI
+      - The Dashboard button is disabled since the user is already in the DashboardGUI
+      - The Recipes button navigates the user to the RecipesGUI
+      - The Household button navigates the user to the HouseholdGUI
     - The DashboardGUI provides a GUI for the user to show the nearest expiration date in the accounts pantry and fridge, at most 3 available recipes , at most 3 members in the same household 
     - When a recipe is clicked on, the ViewRecipeGUI will be called to view the recipes clicked on
     - When a member is clicked on, the ViewMemberGUI will be called to view the member clicked on
