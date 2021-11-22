@@ -67,15 +67,25 @@ public class DatabaseHandler
             int index2 = 0;
             while (inP.hasNextLine())
             {
-                String temp = inP.nextLine();
-                pantry[index] = new Item(temp);
+                String[] temp = inP.nextLine().split(";");
+                if(temp.length == 3  && !temp[1].equals("") && !temp[2].equals("")) {
+                    pantry[index] = new Item(temp[0], Integer.parseInt(temp[1]), temp[2]);
+                }
+                else{
+                    pantry[index] = new Item(temp[0]);
+                }
                 index++;
                 pSize++;
             }
             while (inF.hasNextLine())
             {
-                String temp = inF.nextLine();
-                fridge[index2] = new Item(temp);
+                String[] temp = inF.nextLine().split(";");
+                if(temp.length == 3 && !temp[1].equals("") && !temp[2].equals("")) {
+                    fridge[index2] = new Item(temp[0], Integer.parseInt(temp[1]), temp[2]);
+                }
+                else{
+                    fridge[index2] = new Item(temp[0]);
+                }
                 index2++;
                 fSize++;
             }
@@ -97,7 +107,7 @@ public class DatabaseHandler
         {
             if (s != null)
             {
-                System.out.print(s.getName() + " ");
+                System.out.print(s.getName() + " " + s.getQuantity() + " " + s.getExpDate());
             }
         }
         System.out.println();
@@ -110,7 +120,7 @@ public class DatabaseHandler
         {
             if (s != null)
             {
-                System.out.print(s.getName() + " ");
+                System.out.print(s.getName() + " " + s.getQuantity() + " " + s.getExpDate());
             }
         }
         System.out.println();
@@ -221,6 +231,7 @@ public class DatabaseHandler
                 default:
                     throw new Exception("Invalid String");
             }
+            String temp2 = "";
             String filePath = new File("").getAbsolutePath();
             filePath = filePath.concat("\\src\\" + hhFridgeF);
             PrintWriter out = new PrintWriter(filePath);
@@ -228,7 +239,12 @@ public class DatabaseHandler
             {
                 if (s != null)
                 {
-                    out.println(s.getName());
+                    if(s.getExpDate() == null)
+                        out.println(s.getName() + ";" + s.getQuantity() + ";" + temp2);
+                    else
+                        out.println(s.getName() + ";" + s.getQuantity() + ";" + s.getExpDate().toString().substring(0,4)+
+                                                                                s.getExpDate().toString().substring(5,7)+
+                                                                                s.getExpDate().toString().substring(8,10));
                 }
             }
             out.close();
@@ -261,6 +277,7 @@ public class DatabaseHandler
                 default:
                     throw new Exception("Invalid String");
             }
+            String temp2 = "";
             String filePath = new File("").getAbsolutePath();
             filePath = filePath.concat("\\src\\" + hhPantryF);
             PrintWriter out = new PrintWriter(filePath);
@@ -268,7 +285,12 @@ public class DatabaseHandler
             {
                 if (s != null)
                 {
-                    out.println(s.getName());
+                    if(s.getExpDate() == null)
+                        out.println(s.getName() + ";" + s.getQuantity() + ";" + temp2);
+                    else
+                        out.println(s.getName() + ";" + s.getQuantity() + ";" + s.getExpDate().toString().substring(0,4)+
+                                                                                s.getExpDate().toString().substring(5,7)+
+                                                                                s.getExpDate().toString().substring(8,10));
                 }
             }
             out.close();
