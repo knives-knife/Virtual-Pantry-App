@@ -414,6 +414,7 @@ public class AddItemGUI extends javax.swing.JFrame
         {
             errorLabel.setText("Invalid Item Name");
             errorLabel.setVisible(true);
+            return;
         }
 //        //check if itemQuantity is empty
 //        else if (itemQuantity.equals(""))
