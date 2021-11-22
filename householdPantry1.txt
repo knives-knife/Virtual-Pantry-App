@@ -1,6 +1,7 @@
-Cereal
-Sugar
-Salt
-Rice
-Pasta
-fruit snacks
+Cereal;999;
+Bob;2;20260708
+Sugar;999;
+Salt;999;
+Rice;999;
+Pasta;999;
+Bob;2;20260708
