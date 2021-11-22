@@ -1,4 +1,4 @@
-Pancake
-Beans
-Onions
-Popcorn
+pancake;1;
+beans;1;
+onions;2;
+popcorn;3;

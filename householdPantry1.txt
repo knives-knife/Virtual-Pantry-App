@@ -1,7 +1,5 @@
-Cereal;999;
-Bob;2;20260708
-Sugar;999;
-Salt;999;
-Rice;999;
-Pasta;999;
-Bob;2;20260708
+cereal;999;
+sugar;999;
+salt;999;
+rice;999;
+pasta;999;

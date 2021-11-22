@@ -1,8 +1,8 @@
-Carrots
-Grapes
-Apples
-Oranges
-Bananas
-Milk
-fish
-ketchup
+carrots;3;
+grapes;1;
+apples;3;
+oranges;2;
+bananas;3;
+milk;1;
+fish;2;
+ketchup;1;

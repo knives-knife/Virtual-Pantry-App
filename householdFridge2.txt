@@ -1,6 +1,6 @@
-Bread
-Butter
-Cheese
-Ketchup
-Mustard
-Mayo
+bread;1;
+butter;2;
+cheese;2;
+ketchup;1;
+mustard;1;
+mayo;1;
