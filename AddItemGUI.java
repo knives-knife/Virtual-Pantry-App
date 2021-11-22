@@ -431,7 +431,7 @@ public class AddItemGUI extends javax.swing.JFrame
 //        }
         else
         {
-            int itemQ = 999;
+            int itemQ = 1;
             String itemE = null;
             //when all fields are provided
             if (!itemQuantity.equals(""))
@@ -441,14 +441,18 @@ public class AddItemGUI extends javax.swing.JFrame
                     //TODO fix item quantity Parser
                     //try to parse the itemQuantity into integer
                     //if cannot, catch exception
-                    System.out.println(itemQ);
                     itemQ = (int) java.lang.Integer.parseInt(itemQuantity);
-                    System.out.println(itemQ);
+                    if (itemQ < 1 || itemQ > 100)
+                    {
+                        errorLabel.setText("The quantitiy is not between 1-100");
+                        errorLabel.setVisible(true);
+                        return;
+                    }
                 }
                 //catch the parse int error
                 catch (Exception e)
                 {
-                    errorLabel.setText("Invalid Item Quantity 2");
+                    errorLabel.setText("The quantitiy is not between 1-100");
                     errorLabel.setVisible(true);
                     return;
                 }
