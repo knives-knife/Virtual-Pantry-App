@@ -1,5 +1,6 @@
-cereal;999;
-sugar;999;
-salt;999;
-rice;999;
-pasta;999;
+cereal;1;
+sugar;1;
+salt;1;
+rice;1;
+pasta;1;
+hot chocolate;1;
