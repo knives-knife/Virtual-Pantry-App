@@ -1,7 +1,7 @@
 ABCDEFGHI
-M 1
-Member2
-Member3
+John Smith
+Jane Smith
+Jill Smith
 *
 JKLMNOPQR
 Member4

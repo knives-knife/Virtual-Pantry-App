@@ -1,4 +1,4 @@
-cereal;1;
+cereal;1;20251212
 sugar;1;
 salt;1;
 rice;1;
