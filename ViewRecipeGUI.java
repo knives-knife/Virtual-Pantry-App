@@ -37,6 +37,7 @@ public class ViewRecipeGUI extends javax.swing.JFrame
     public ViewRecipeGUI(Account acc, Member mem, Recipe rec)
     {
         initComponents();
+        addToSLButton.setEnabled(false);
         errorLabel.setVisible(false);
         account = acc;
         member = mem;
