@@ -55,7 +55,7 @@ public class LogInGUI extends javax.swing.JFrame
         title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         title.setText("Login");
 
-        displayNameField.setText("M 1");
+        displayNameField.setText("John Smith");
         displayNameField.setToolTipText("Enter your display name here");
         displayNameField.addActionListener(new java.awt.event.ActionListener()
         {

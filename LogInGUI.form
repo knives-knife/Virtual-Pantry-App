@@ -107,7 +107,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="displayNameField">
           <Properties>
-            <Property name="text" type="java.lang.String" value="M 1"/>
+            <Property name="text" type="java.lang.String" value="John Smith"/>
             <Property name="toolTipText" type="java.lang.String" value="Enter your display name here"/>
           </Properties>
           <Events>
