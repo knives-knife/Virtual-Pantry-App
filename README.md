@@ -1,9 +1,9 @@
 # Virtual-Pantry-App
 
 # How To Run
+  - Download Java SE Development Kit 17.0.1 from https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html
   - Download the VirtualPantryApp.zip file
   - Extract the VirtualPantryApp.zip file
-  - Download Java SE Development Kit 17.0.1 from https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html
   - Locate the VirtualPantryApp.jar file in the extracted folder
   - Open the VirtualPantryApp.jar file with Java 17.0.1 (double click the jar file)
 
@@ -15,8 +15,7 @@
 This will put you into the Log In screen.
 A successful log in can be achieved with "M 1" as the display name
   and "ABCDEFGHI" as the household code. 
-These should be automatically input to the text fields when the 
-  Log In screen is started until the project is finished
+These should be automatically input to the text fields when the Log In screen is started until the project is finished. 
  After logging in, the dashboard will be shown.
 
 # Information
