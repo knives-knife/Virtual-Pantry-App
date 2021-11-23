@@ -19,8 +19,9 @@ A successful log in can be achieved with "M 1" as the display name
   and "ABCDEFGHI" as the household code. 
 These should be automatically input to the text fields when the 
   Log In screen is started until the project is finished
- After logging in, the dashboard will be shown
- 
+ After logging in, the dashboard will be shown.
+
+# Information
 ## **DashboardGUI**
    - The DashboardGUI has a bottom banner that allows the user to navigate to other pages.
      - The Fridge button navigates the user to the FridgeGUI
