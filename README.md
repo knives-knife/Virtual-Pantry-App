@@ -1,6 +1,19 @@
 # Virtual-Pantry-App
 
-To start the program, run the Main.java. 
+# Installation
+## **Method 1**
+  - Download the VirtualPantryApp.jar file.
+  - Download Java SE Development Kit 17.0.1 from https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html
+  - Open the jar file with java 17.0.1
+## **Method 2**
+  - Download NetBeans 11.3 from https://netbeans.apache.org/download/archive/index.html
+  - Download the VirtualPantryAppSourceCode.zip file
+  - Create a new Java Project
+  - Extract the VirtualPantryAppSourceCode.zip file into the default package of the Java project
+    - In the file explorer, the default package will be the src folder
+  - Run the Main.java file
+
+
 This will put you into the Log In screen.
 A successful log in can be achieved with "M 1" as the display name
   and "ABCDEFGHI" as the household code. 
