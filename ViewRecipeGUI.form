@@ -30,7 +30,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <Component id="body" min="-2" pref="486" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -42,7 +42,6 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Component id="recipeNameLabel" alignment="0" max="32767" attributes="0"/>
-              <Component id="botBanPanel" alignment="0" max="32767" attributes="0"/>
               <Group type="102" alignment="1" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
@@ -71,6 +70,10 @@
                   </Group>
                   <EmptySpace min="73" pref="73" max="-2" attributes="0"/>
               </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <Component id="botBanPanel" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -94,7 +97,7 @@
                   <Component id="addToSLButton" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="botBanPanel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -127,9 +130,9 @@
                   </Group>
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Component id="botBanFridgeButton" pref="69" max="32767" attributes="0"/>
+                      <Component id="botBanFridgeButton" max="32767" attributes="0"/>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Component id="botBanPantryButton" pref="70" max="32767" attributes="0"/>
+                      <Component id="botBanPantryButton" max="32767" attributes="0"/>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="botBanDashboardButton" max="32767" attributes="0"/>
@@ -138,7 +141,7 @@
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="botBanRecipesButton" max="32767" attributes="0"/>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Component id="botBanHHButton" pref="86" max="32767" attributes="0"/>
+                      <Component id="botBanHHButton" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -147,7 +150,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="errorLabel" min="-2" pref="14" max="-2" attributes="0"/>
-                      <EmptySpace pref="46" max="32767" attributes="0"/>
+                      <EmptySpace pref="39" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="botBanFridgeButton" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="botBanPantryButton" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -197,7 +200,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="botBanHHButton">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Hosuehold"/>
+                <Property name="text" type="java.lang.String" value="Household"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botBanHHButtonActionPerformed"/>

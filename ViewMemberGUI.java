@@ -104,6 +104,7 @@ public class ViewMemberGUI extends javax.swing.JFrame
         });
 
         botBanHHButton.setText("Hosuehold");
+        botBanHHButton.setActionCommand("Household");
         botBanHHButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)

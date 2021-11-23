@@ -113,7 +113,7 @@ public class RecipesGUI extends javax.swing.JFrame
             }
         });
 
-        botBanHHButton.setText("Hosuehold");
+        botBanHHButton.setText("Household");
         botBanHHButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
