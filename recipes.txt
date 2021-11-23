@@ -1,27 +1,23 @@
-Recipe1
-recipe desc - 1
-recipe desc - 2
-recipe desc - 3
-Carrots
-Grapes
-Pasta
-Potatoes
+Tomato Soup
+This is tomoto soup from a can
+You could just read the instructions on the can
+Bring to a boil and eat
+tomato soup
 *
-Recipe2
-recipe desc2 - 1
-recipe desc2 - 2
-recipe desc2 - 3
-Cereal
-Sugar
-Salt
-Rice
+Grilled Cheese
+A classic, easy recipe
+Place cheese in between two pieces of bread and butter the outside of the bread
+Cook until golden brown and enjoy
+cheese
+bread
+butter
 *
 Recipe3
 recipe desc3 - 1
 recipe desc3 - 2
 recipe desc3 - 3
-Apples
-Oranges
-Bananas
+apples
+oranges
+bananas
 Milk
 

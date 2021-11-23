@@ -6,3 +6,5 @@ bananas;3;
 milk;1;
 fish;2;
 ketchup;1;
+butter;1;
+cheese;1;
