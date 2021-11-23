@@ -1,17 +1,15 @@
 # Virtual-Pantry-App
 
-# Installation
-## **Method 1**
-  - Download the VirtualPantryApp.jar file
+# How To Run
+  - Download the VirtualPantryApp.zip file
+  - Extract the VirtualPantryApp.zip file
   - Download Java SE Development Kit 17.0.1 from https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html
-  - Open the jar file with java 17.0.1
-## **Method 2**
-  - Download NetBeans IDE 11.3 from https://netbeans.apache.org/download/archive/index.html
-  - Download the VirtualPantryAppSourceCode.zip file
-  - Create a new Java Project
-  - Extract the VirtualPantryAppSourceCode.zip file into the default package of the Java project
-    - In the file explorer, the default package will be the src folder
-  - Run the Main.java file
+  - Locate the VirtualPantryApp.jar file in the extracted folder
+  - Open the VirtualPantryApp.jar file with Java 17.0.1 (double click the jar file)
+
+**Note: The jar file MUST be in the same folder as ALL of the text files
+
+
 
 
 This will put you into the Log In screen.
