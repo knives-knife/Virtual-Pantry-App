@@ -2,7 +2,8 @@
 
 # How To Run
   - Download Java SE Development Kit 17.0.1 from https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html
-  - Download the VirtualPantryApp.zip file
+  - The VirtualPantryApp.jar file is located inside the VirtualPantryApp.zip file
+  - Download the VirtualPantryApp.zip file in the repository
   - Extract the VirtualPantryApp.zip file
   - Locate the VirtualPantryApp.jar file in the extracted folder
   - Open the VirtualPantryApp.jar file with Java 17.0.1 (double click the jar file)
