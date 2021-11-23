@@ -11,7 +11,7 @@ DashboardGUI
         pantry and fridge, at most 3 available recipes , at most 3 members in the same household 
     When a recipe is clicked on, the ViewRecipeGUI will be called to view the recipes clicked on
     When a member is clicked on, the ViewMemberGUI will be called to view the member clicked on
-*/
+ */
 
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.TemporalAccessor;
@@ -25,6 +25,7 @@ import java.util.logging.Logger;
  */
 public class DashboardGUI extends javax.swing.JFrame
 {
+
     private Account account;
     private Member member;
 
@@ -64,15 +65,15 @@ public class DashboardGUI extends javax.swing.JFrame
         //get the availabe recipes from the RecipesDBHandler
         //set the recipes buttons text with the name of the first three recipes
         setRecipeButtons(rdbh.getRecipes(dbh.getPantry(), dbh.getFridge()));
-        
+
         //get member array from DatabaseHandler
         //set the member buttons text with the display name of the first three members
         setMemberButtons(account.getMemList());
 
     }
 
-     private void setRecipeButtons(Recipe[] recipes)
-     {
+    private void setRecipeButtons(Recipe[] recipes)
+    {
         //initialize recipe buttons to be blank and invisible
         recipeButton1.setText("");
         recipeButton1.setVisible(false);
@@ -80,34 +81,35 @@ public class DashboardGUI extends javax.swing.JFrame
         recipeButton2.setVisible(false);
         recipeButton3.setText("");
         recipeButton3.setVisible(false);
-         for (Recipe r : recipes)
-         {
-             if (r != null)
-             {
-                 //set first button to first recipe
-                 if (recipeButton1.getText().equals(""))
-                 {
-                     recipeButton1.setText(r.getName());
-                     recipeButton1.setVisible(true);
-                 }
-                 //set second button to second recipe
-                 else if (recipeButton2.getText().equals(""))
-                 {
-                     recipeButton2.setText(r.getName());
-                     recipeButton2.setVisible(true);
-                 }
-                 //set third button to third recipe
-                 //break out of loop since 
-                 //no more buttons need to be set
-                 else
-                 {
-                     recipeButton3.setText(r.getName());
-                     recipeButton3.setVisible(true);
-                     break;
-                 }
-             }
-         }
-     }
+        for (Recipe r : recipes)
+        {
+            if (r != null)
+            {
+                //set first button to first recipe
+                if (recipeButton1.getText().equals(""))
+                {
+                    recipeButton1.setText(r.getName());
+                    recipeButton1.setVisible(true);
+                }
+                //set second button to second recipe
+                else if (recipeButton2.getText().equals(""))
+                {
+                    recipeButton2.setText(r.getName());
+                    recipeButton2.setVisible(true);
+                }
+                //set third button to third recipe
+                //break out of loop since 
+                //no more buttons need to be set
+                else
+                {
+                    recipeButton3.setText(r.getName());
+                    recipeButton3.setVisible(true);
+                    break;
+                }
+            }
+        }
+    }
+
     private void setMemberButtons(Member[] mems)
     {
         //initialize recipe buttons to be blank and invisible
@@ -145,40 +147,42 @@ public class DashboardGUI extends javax.swing.JFrame
             }
         }
     }
-    
-   void setNextExp(Item[] pantry, Item[] fridge)
-   {
-       
-       // find next expiration date for pantry and 
-       // fridge separately and store the indices
-       int pExpDateIndex = 0;
-       int fExpDateIndex = 0;
-       for (int i = 0; i < pantry.length; i++)
-       {
-           if (pantry[i] != null && pantry[i].getExpDate() != null)
-           {
+
+    void setNextExp(Item[] pantry, Item[] fridge)
+    {
+
+        // find next expiration date for pantry and 
+        // fridge separately and store the indices
+        int pExpDateIndex = 0;
+        int fExpDateIndex = 0;
+
+        for (int i = 0; i < pantry.length; i++)
+        {
+            if (pantry[i] != null && pantry[i].getExpDate() != null)
+            {
                 if (pantry[i].getExpDate().isBefore(pantry[pExpDateIndex].getExpDate()))
                 {
                     pExpDateIndex = i;
                 }
             }
-       }
-       for (int i = 0; i < fridge.length; i++)
-       {
+        }
+        for (int i = 0; i < fridge.length; i++)
+        {
             if (fridge[i] != null && fridge[i].getExpDate() != null)
             {
                 if (fridge[i].getExpDate().isBefore(fridge[fExpDateIndex].getExpDate()))
                 {
                     fExpDateIndex = i;
                 }
-            }   
-       }
+            }
+        }
 
-       // create a format for the date
-       DateTimeFormatter format1 = DateTimeFormatter.ofPattern("yyyy-MM-dd", Locale.ENGLISH);
+        // create a format for the date
+        DateTimeFormatter format1 = DateTimeFormatter.ofPattern("yyyy-MM-dd", Locale.ENGLISH);
 
-       if (pantry[pExpDateIndex].getExpDate() == null && 
-            fridge[fExpDateIndex].getExpDate() == null)
+        //neither have exp dates
+        if (pantry[pExpDateIndex].getExpDate() == null
+                && fridge[fExpDateIndex].getExpDate() == null)
         {
             expDateLabel.setText("None");
             expItemLabel.setText("None");
@@ -186,23 +190,23 @@ public class DashboardGUI extends javax.swing.JFrame
         else
         {
             //pantry item has exp date and fridge does not
-            if (pantry[pExpDateIndex].getExpDate() != null && fridge[fExpDateIndex].getExpDate() == null) 
+            if (pantry[pExpDateIndex].getExpDate() != null && fridge[fExpDateIndex].getExpDate() == null)
             {
                 expDateLabel.setText(format1.format((TemporalAccessor) pantry[pExpDateIndex].getExpDate()));
                 expItemLabel.setText(pantry[pExpDateIndex].getName());
-            } 
+            }
             //fridge item has exp date and pantry does not
-            else if (pantry[pExpDateIndex].getExpDate() == null && fridge[fExpDateIndex].getExpDate() != null) 
+            else if (pantry[pExpDateIndex].getExpDate() == null && fridge[fExpDateIndex].getExpDate() != null)
             {
                 expDateLabel.setText(format1.format((TemporalAccessor) fridge[fExpDateIndex].getExpDate()));
                 expItemLabel.setText(fridge[fExpDateIndex].getName());
             }
             //both have exp dates
-            else 
+            else
             {
                 // if the pantry item expires before the fridge item,
                 // display the pantry item
-                if (pantry[pExpDateIndex].getExpDate().isBefore(fridge[fExpDateIndex].getExpDate())) 
+                if (pantry[pExpDateIndex].getExpDate().isBefore(fridge[fExpDateIndex].getExpDate()))
                 {
                     expDateLabel.setText(format1.format((TemporalAccessor) pantry[pExpDateIndex].getExpDate()));
                     expItemLabel.setText(pantry[pExpDateIndex].getName());
@@ -210,14 +214,14 @@ public class DashboardGUI extends javax.swing.JFrame
 
                 // otherwise the fridge item expires before the pantry item,
                 // so display the fridge item
-                else 
+                else
                 {
                     expDateLabel.setText(format1.format((TemporalAccessor) fridge[fExpDateIndex].getExpDate()));
                     expItemLabel.setText(fridge[fExpDateIndex].getName());
                 }
             }
         }
-   }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -532,7 +536,7 @@ public class DashboardGUI extends javax.swing.JFrame
             return;
         }
         this.dispose();
-        ViewRecipeGUI viewRecipe = new ViewRecipeGUI(account, member, 
+        ViewRecipeGUI viewRecipe = new ViewRecipeGUI(account, member,
                 rdbh.search(recipeButton1.getText()));
         viewRecipe.setVisible(true);
     }
@@ -553,7 +557,7 @@ public class DashboardGUI extends javax.swing.JFrame
             return;
         }
         this.dispose();
-        ViewRecipeGUI viewRecipe = new ViewRecipeGUI(account, member, 
+        ViewRecipeGUI viewRecipe = new ViewRecipeGUI(account, member,
                 rdbh.search(recipeButton2.getText()));
         viewRecipe.setVisible(true);
     }
@@ -574,7 +578,7 @@ public class DashboardGUI extends javax.swing.JFrame
             return;
         }
         this.dispose();
-        ViewRecipeGUI viewRecipe = new ViewRecipeGUI(account, member, 
+        ViewRecipeGUI viewRecipe = new ViewRecipeGUI(account, member,
                 rdbh.search(recipeButton3.getText()));
         viewRecipe.setVisible(true);
     }
@@ -590,28 +594,28 @@ public class DashboardGUI extends javax.swing.JFrame
     //go to viewMembeGUI for that member
     private void hhMemButton1ActionPerformed(java.awt.event.ActionEvent evt)
     {
-            this.dispose();
-            ViewMemberGUI viewMember = new ViewMemberGUI(account, member, 
-                    account.getMember(hhMemButton1.getText()));
-            viewMember.setVisible(true);
+        this.dispose();
+        ViewMemberGUI viewMember = new ViewMemberGUI(account, member,
+                account.getMember(hhMemButton1.getText()));
+        viewMember.setVisible(true);
     }
 
     //go to viewMembeGUI for that member
     private void hhMemButton2ActionPerformed(java.awt.event.ActionEvent evt)
     {
-            this.dispose();
-            ViewMemberGUI viewMember = new ViewMemberGUI(account, member, 
-                    account.getMember(hhMemButton2.getText()));
-            viewMember.setVisible(true);
+        this.dispose();
+        ViewMemberGUI viewMember = new ViewMemberGUI(account, member,
+                account.getMember(hhMemButton2.getText()));
+        viewMember.setVisible(true);
     }
 
     //go to viewMembeGUI for that member
     private void hhMemButton3ActionPerformed(java.awt.event.ActionEvent evt)
     {
-            this.dispose();
-            ViewMemberGUI viewMember = new ViewMemberGUI(account, member, 
-                    account.getMember(hhMemButton3.getText()));
-            viewMember.setVisible(true);
+        this.dispose();
+        ViewMemberGUI viewMember = new ViewMemberGUI(account, member,
+                account.getMember(hhMemButton3.getText()));
+        viewMember.setVisible(true);
     }
 
     //switch to HouseholdGUI when the see more under household is clicked
@@ -661,7 +665,7 @@ public class DashboardGUI extends javax.swing.JFrame
         HouseholdGUI hh = new HouseholdGUI(account, member);
         hh.setVisible(true);
     }
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel avRecipesLabel;
     private javax.swing.JPanel body;
