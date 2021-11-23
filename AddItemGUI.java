@@ -383,11 +383,13 @@ public class AddItemGUI extends javax.swing.JFrame
         errorLabel.setVisible(false);
 
         DatabaseHandler dbh = null;
+        ShoppingListDBH sldbh = null;
         //try making a DatabaseHandler
         //catch errors
         try
         {
             dbh = new DatabaseHandler(account.getHouseholdCode());
+            sldbh = new ShoppingListDBH(account.getHouseholdCode());
         }
         //if error, tell the user ERROR and exit function
         catch (Exception e)
@@ -502,8 +504,7 @@ public class AddItemGUI extends javax.swing.JFrame
             //add the item to the account's shopping list
             else if (shoppingListRadioButton.isSelected())
             {
-                ShoppingListDBH sldbh = new ShoppingListDBH(
-                        account.getHouseholdCode());
+                
                 sldbh.addToSL(new Item(itemName.toLowerCase(),
                         itemQ, itemE));
             }

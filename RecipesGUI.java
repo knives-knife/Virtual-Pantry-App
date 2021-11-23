@@ -10,7 +10,7 @@ RecipesGUI
     The RecipesGUI shows the user the recipes that can be made from the Account's
         pantry and fridge 
     When the view recipe button is clicked, the user will be navigated to the ViewRecipeGUI
-*/
+ */
 /**
  *
  * @author joahp
@@ -316,13 +316,24 @@ public class RecipesGUI extends javax.swing.JFrame
         //there is a recipe that was selected
         else
         {
-            RecipeDBH rdbh = new RecipeDBH();
+            RecipeDBH rdbh;
+            try
+            {
+                rdbh = new RecipeDBH();
+            }
+            catch (Exception ex)
+            {
+                this.dispose();
+                LogInGUI logIn = new LogInGUI(account, member);
+                logIn.setVisible(true);
+                return;
+            }
             this.dispose();
-            ViewRecipeGUI viewRecipe = new ViewRecipeGUI(account, member, 
+            ViewRecipeGUI viewRecipe = new ViewRecipeGUI(account, member,
                     rdbh.search(recipeName));
             viewRecipe.setVisible(true);
         }
-        
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -362,17 +373,17 @@ public class RecipesGUI extends javax.swing.JFrame
             logIn.setVisible(true);
             return;
         }
-        
-            //get available recipes from RecipeDBH
-            Recipe[] recipes = rdbh.getRecipes(dbh.getPantry(),
-                    dbh.getFridge());
-            //add non-null recipe's names to the GUI list
-            for (Recipe r : recipes)
+
+        //get available recipes from RecipeDBH
+        Recipe[] recipes = rdbh.getRecipes(dbh.getPantry(),
+                dbh.getFridge());
+        //add non-null recipe's names to the GUI list
+        for (Recipe r : recipes)
+        {
+            if (r != null)
             {
-                if (r != null)
-                {
-                    itemModel.addElement(r.getName());
-                }
+                itemModel.addElement(r.getName());
             }
+        }
     }
 }

@@ -19,14 +19,18 @@ import java.util.Scanner;
 public class AccountDBH
 {
     Account[] accounts;
+    String jarFolderPath;
 
     //takes in string for the account code to find the file to read write from, and gets everything from the database to arrays.
     public AccountDBH() throws Exception
     {
+        jarFolderPath = getClass().getProtectionDomain().getCodeSource()
+                    .getLocation().toURI().getPath();
+        jarFolderPath = jarFolderPath.substring(0, jarFolderPath.indexOf("VirtualPantryApp.jar"));
         Scanner inA;
         try
         {
-            inA = new Scanner(getClass().getResourceAsStream("accounts.txt"));
+            inA = new Scanner(new File(jarFolderPath + "accounts.txt"));
             accounts = new Account[100];
             int index = 0;
             while (inA.hasNextLine())
@@ -86,9 +90,7 @@ public class AccountDBH
 
     public void updateAccountFile(){
         try {
-            String filePath = new File("").getAbsolutePath();
-            filePath = filePath.concat("\\src\\accounts.txt");
-            PrintWriter out = new PrintWriter(filePath);
+            PrintWriter out = new PrintWriter(new File(jarFolderPath + "accounts.txt"));
             String asterisk = "";
             for (Account s : accounts) {
                 if (s != null) {

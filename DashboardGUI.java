@@ -16,6 +16,8 @@ DashboardGUI
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.TemporalAccessor;
 import java.util.Locale;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -517,7 +519,18 @@ public class DashboardGUI extends javax.swing.JFrame
     //go to viewRecipeGUI for that Recipe
     private void recipeButton1ActionPerformed(java.awt.event.ActionEvent evt)
     {
-        RecipeDBH rdbh = new RecipeDBH();
+        RecipeDBH rdbh;
+        try
+        {
+            rdbh = new RecipeDBH();
+        }
+        catch (Exception ex)
+        {
+            this.dispose();
+            LogInGUI logIn = new LogInGUI(account, member);
+            logIn.setVisible(true);
+            return;
+        }
         this.dispose();
         ViewRecipeGUI viewRecipe = new ViewRecipeGUI(account, member, 
                 rdbh.search(recipeButton1.getText()));
@@ -527,7 +540,18 @@ public class DashboardGUI extends javax.swing.JFrame
     //go to viewRecipeGUI for that Recipe
     private void recipeButton2ActionPerformed(java.awt.event.ActionEvent evt)
     {
-        RecipeDBH rdbh = new RecipeDBH();
+        RecipeDBH rdbh;
+        try
+        {
+            rdbh = new RecipeDBH();
+        }
+        catch (Exception ex)
+        {
+            this.dispose();
+            LogInGUI logIn = new LogInGUI(account, member);
+            logIn.setVisible(true);
+            return;
+        }
         this.dispose();
         ViewRecipeGUI viewRecipe = new ViewRecipeGUI(account, member, 
                 rdbh.search(recipeButton2.getText()));
@@ -537,7 +561,18 @@ public class DashboardGUI extends javax.swing.JFrame
     //go to viewRecipeGUI for that Recipe
     private void recipeButton3ActionPerformed(java.awt.event.ActionEvent evt)
     {
-        RecipeDBH rdbh = new RecipeDBH();
+        RecipeDBH rdbh;
+        try
+        {
+            rdbh = new RecipeDBH();
+        }
+        catch (Exception ex)
+        {
+            this.dispose();
+            LogInGUI logIn = new LogInGUI(account, member);
+            logIn.setVisible(true);
+            return;
+        }
         this.dispose();
         ViewRecipeGUI viewRecipe = new ViewRecipeGUI(account, member, 
                 rdbh.search(recipeButton3.getText()));

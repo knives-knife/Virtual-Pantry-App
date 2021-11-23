@@ -22,12 +22,17 @@ public class DatabaseHandler
 {
 
     String hhCode;              //household code
+    String jarFolderPath;
     Item[] pantry, fridge;   //array ingredients in the pantry and fridge of household
     int pSize, fSize;          //size of pantry and fridge, max value is 100
 
     //takes in string for the account code to find the file to read write from, and gets everything from the database to arrays.
     public DatabaseHandler(String x) throws Exception
     {
+        jarFolderPath = getClass().getProtectionDomain().getCodeSource()
+                    .getLocation().toURI().getPath();
+        jarFolderPath = jarFolderPath.substring(0, jarFolderPath.indexOf("VirtualPantryApp.jar"));
+        
         Scanner inP;
         Scanner inF;
         String hhPantryF;
@@ -57,8 +62,9 @@ public class DatabaseHandler
                     throw new Exception("Invalid String");
             }
 
-            inP = new Scanner(getClass().getResourceAsStream(hhPantryF));
-            inF = new Scanner(getClass().getResourceAsStream(hhFridgeF));
+            
+            inP = new Scanner(new File(jarFolderPath + hhPantryF));
+            inF = new Scanner(new File(jarFolderPath + hhFridgeF));
 
             pantry = new Item[100];       //maximum value hardcoded to 100
             fridge = new Item[100];
@@ -232,9 +238,7 @@ public class DatabaseHandler
                     throw new Exception("Invalid String");
             }
             String temp2 = "";
-            String filePath = new File("").getAbsolutePath();
-            filePath = filePath.concat("\\src\\" + hhFridgeF);
-            PrintWriter out = new PrintWriter(filePath);
+            PrintWriter out = new PrintWriter(new File(jarFolderPath + hhFridgeF));
             for (Item s : fridge)
             {
                 if (s != null)
@@ -278,9 +282,7 @@ public class DatabaseHandler
                     throw new Exception("Invalid String");
             }
             String temp2 = "";
-            String filePath = new File("").getAbsolutePath();
-            filePath = filePath.concat("\\src\\" + hhPantryF);
-            PrintWriter out = new PrintWriter(filePath);
+            PrintWriter out = new PrintWriter(new File(jarFolderPath + hhPantryF));
             for (Item s : pantry)
             {
                 if (s != null)
