@@ -1,9 +1,25 @@
-cereal;1;20251212
-sugar;1;
+carrots;3;20251218
+grapes;1;
+apples;3;
+oranges;2;
+bananas;3;
+milk;1;20211208
+fish;2;
+ketchup;1;
+butter;1;
+cheese;1;
+garlic;1;
 salt;1;
-rice;1;
-pasta;1;
-hot chocolate;1;
-potatoes;1;
+pepper;1;
+flour;1;
+oil;1;
+tomatoes;1;
 bread;1;
-tomato soup;1;
+spinach;1;
+onions;1;
+macaroni;1;
+ravioli;1;
+pesto;1;
+prosciutto;1;
+sauce;1;
+sugar;1;

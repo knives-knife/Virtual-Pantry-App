@@ -19,5 +19,107 @@ recipe desc3 - 3
 apples
 oranges
 bananas
-Milk
-
+milk
+*
+Lemon Chicken
+Easy to make Chicken Recipe
+Juicy and Tender chicken breasts
+Healthy and Delicious
+egg
+garlic
+salt
+pepper
+chicken
+flour
+cheese
+*
+Smoked Mackerel
+Easy to make using only few recipes
+Takes Just 30 minutes
+Great Choice for weeknights
+potatoes
+oil
+leek
+egg
+mackerel
+*
+Bean Baked Eggs
+Takes only 5 minutes
+Quick and Easy
+Made from cupboard stored ingredients
+tomatoes
+beans
+spinach
+egg
+bread
+ham
+*
+Smoked Salmon
+Swedish Inspired dish
+Only 4 ingredients
+Easy to make
+spinach
+butter
+salmon
+cream
+*
+Tuna Casserole
+Easy to make
+Great as Leftovers
+Only 5 ingredients
+tuna
+macaroni
+onions
+cheese
+cream
+*
+Cheese Ravioli
+Quick and Easy
+Tastes Gourmet
+Makes 4 servings
+ravioli
+cream
+cheese
+parsley
+pepper
+*
+Butternut Squash
+Tasty Quick and Easy
+Good on its own
+Healthy
+squash
+oil
+garlic
+pepper
+*
+Pesto Chicken
+Takes 30 minutes
+Can be made ahead of time
+Can refrigerate
+chicken
+pesto
+prosciutto
+*
+Teriyaki Chicken
+Sweet and Spicy
+Served with rice
+Easy to make
+chicken
+sugar
+sauce
+*
+Mac and Cheese
+Classic
+Easy to make
+Can refrigerate
+milk
+macaroni
+cheese
+*
+Chili
+Easy soup
+Made in 30 minutes
+Filled with Flavor
+beans
+tomatoes
+beef

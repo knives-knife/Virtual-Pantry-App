@@ -1,10 +1,24 @@
-carrots;3;20251218
-grapes;1;
-apples;3;
-oranges;2;
-bananas;3;
-milk;1;20211208
-fish;2;
-ketchup;1;
-butter;1;
+cereal;1;20251212
+sugar;1;
+salt;1;
+rice;1;
+pasta;1;
+hot chocolate;1;
+potatoes;1;
+bread;1;
+tomato soup;1;
+egg;1;
+chicken;1;
 cheese;1;
+leek;1;
+mackerel;1;
+beans;1;
+ham;1;
+butter;1;
+salmon;1;
+cream;1;
+tuna;1;
+cheese;1;
+parsley;1;
+squash;1;
+beef;1;
